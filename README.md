@@ -22,9 +22,9 @@ Post MVP ideas: comment on review, top-rated restaurant lists, most visited rest
 
 ### Design:
 
-[Screen Designs](Screens.md)
+[Screen Designs](DesignDocuments/Screens.md)
 
-[User Stories](UserStories.md)
+[User Stories](DesignDocuments/UserStories.md)
 
 ### Project Plan
 
