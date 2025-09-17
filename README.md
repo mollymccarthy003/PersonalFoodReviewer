@@ -18,6 +18,8 @@ Unit Testing: JUnit
 
 IDE: IntelliJ IDEA/VSCODE
 
+Post MVP ideas: comment on review, top-rated restaurant lists, most visited restuarant
+
 ### Design:
 
 [Screen Designs](Screens.md)
