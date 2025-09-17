@@ -1,4 +1,4 @@
-# Time Log
+# Time Log Fall 2025
 
 | Date | Task | Hours | Notes|
 |------|------|-------|------|
