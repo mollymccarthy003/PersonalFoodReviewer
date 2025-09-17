@@ -12,12 +12,14 @@
 ## Week 3 Prepare for Indie Checkpoint 1
 ### Foundation for MVP
 - [x] Write Project Plan
-- [ ] Design Screens, make sure all MVP are covered
+- [x] Design Screens
+- [x] Make sure all MVP are covered
 - [x] List technologies
 - [x] Daily Timelog
 
 ## Week 4 DAOs/Hibernate
 ### MVP stories identified: User signup/login, add/view reviews, restaurant search
+- [ ] SUBMIT CHECKPOINT 1
 - [ ] First cut at database design
 - [ ] Create the dev version of the database
 - [ ] Create Review entity
@@ -50,6 +52,7 @@
 - [ ] Daily Timelog
       
 ## Week 7 Security
+- [ ] SUBMIT CHECKPOINT 2
 ### User authentication complete
 - [ ] AWS Cognitio Implemented
 - [ ] Google Auth?
@@ -67,6 +70,7 @@
       
 ## Week 9 RESTful Web Services (start of team project)
 ### Users can see restuarent reviews on the web!
+- [ ] SUBMIT CHECKPOINT 3
 - [ ] JSP Integration
 - [ ] Daily Timelog
 
