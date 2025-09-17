@@ -62,7 +62,7 @@
 - [ ] AWS Working Smoothly
 - [ ] JSP Displays DB Data
 - [ ] Authentication implemented
-- [ ] Add to week 10-16 on project plan (review for accuracy)
+- [ ] Add to week 10-16 on project plan (rewrite for accuracy)
 - [ ] Daily Timelog
       
 ## Week 9 RESTful Web Services (start of team project)
