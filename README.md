@@ -1,5 +1,7 @@
 ### Problem Statement:
 Madison is home to incredible restaurants, food trucks, and cafes, but with so many options it's easy to forget where you had that perfect meal while balancing your busy lifestyle as a student. Trying to track your favorites on mainstream apps like Yelp  are overwhelming, filled with ads and don't focus on tracking personal taste. I'd like to build a Personal Food Reviewer website for local Madison students. The site will allow students to review resturants quickly, see personal ratings, and discover favorites, or document bad experiences. All your ratings of businesses are private and personal, like a diary but for food!!
+
+Not only is this a fun way to document your current favorites, but its a way to look back on your college experience. 
 ### Technologies:
 
 Database: MySQL 9.x
