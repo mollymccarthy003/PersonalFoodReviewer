@@ -17,9 +17,10 @@
 - [x] List technologies
 - [x] Daily Timelog
 
-## Week 4 DAOs/Hibernate
-### MVP stories identified: User signup/login, add/view reviews, restaurant search
-- [ ] SUBMIT CHECKPOINT 1
+## Week 6 MAKE UP WORK
+Week 4 DAOs/Hibernate
+MVP stories identified: User signup/login, add/view reviews, restaurant search
+- [x] SUBMIT CHECKPOINT 1
 - [ ] First cut at database design
 - [ ] Create the dev version of the database
 - [ ] Create Review entity
@@ -32,17 +33,15 @@
 - [ ] Creating jsp for displaying said review
 - [ ] Create controllers
 - [ ] Add Log4J Logging
-- [ ] Daily Timelog
-      
-## Week 5 Hibernate Cont.
-### Core MVP functionality in progress
+- [ ] Daily Timelog     
+Week 5 Hibernate Cont.
+Core MVP functionality in progress
 - [ ] Finalize database
 - [ ] Full CRUD for ReviewDAO
 - [ ] Hibernate fully inegrated and running smoothly
 - [ ] Daily Timelog
-
-## Week 6 AWS setup / Prepare for Indie Checkpoint 2 
-### Peer feedback incorporated
+Week 6 AWS setup / Prepare for Indie Checkpoint 2 
+Peer feedback incorporated
 - [ ] Deployment prep
 - [ ] AWS account setup
 - [ ] Test deployment environment

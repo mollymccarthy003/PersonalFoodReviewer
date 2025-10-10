@@ -1,13 +1,22 @@
 # Screen Design
 
-Homepage (latest rating / log in / search bar)
+## Homepage ( log in / search bar / navigation sidebar)
+![homepage](wireframes/homepagewf.png)
 
-Add New Resturant (form to create a rating)
+## Add New Resturant (form to create a rating)
+![newrestaurant](wireframes/newrestaurantwf.png)
 
-Display Rating
+## Display Rating
+![displayrestaurant](wireframes/viewrestaurantwf.png)
 
-Sign Up
+## Display All Restaurants
+![allrestaurants](wireframes/allrestaurantswf.png)
 
-Sign In
+## Sign Up
+![signup](wireframes/signupwf.png)
 
-About
+## Sign In
+![signin](wireframes/signinwf.png)
+
+## About
+![about](wireframes/aboutwf.png)
