@@ -7,4 +7,5 @@
 | 9/15 | Plan week, watch videos | 1 | Still troubleshooting week 2 exercise  |
 | 9/17 | Continued week 2 exercise and added log4j(activity 1 wk3), began working on indie project checkpoint 1 | 7 | Wednesdays are a good workday for me. Took a longer break around lunchtime that helped me keep going. Completed almost all checkpoint 1 requirements |
 | 9/22 | Plan week, finish wireframes submit indie checkpoint 1 | 1 | Double checked indie checkpoint and finished my wireframes. submitting tomorrow |
-| 9/26 | Continue Week 4, start week 5 | | Today and tomorrow are the last days I'll be able to work on this class this week since I am going out of town on wednesday-sunday |
+| 9/26 | Continue Week 4, start week 5 | 3| Today and tomorrow are the last days I'll be able to work on this class this week since I am going out of town on wednesday-sunday |
+| 10/10 | Finished week 4 exercise and implemented hibernate in my indie project | 7 | So happy that I was able to do this today! |
