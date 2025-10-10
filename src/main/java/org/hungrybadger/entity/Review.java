@@ -8,12 +8,25 @@ import org.hibernate.annotations.GenericGenerator;
  *
  * @author M. McCarthy
  */
+@Entity
+@Table(name = "review")
 public class Review {
 
+    @Column(name = "restaurant_name")
     private String restaurantName;
+
+    @Column(name = "cuisine_type")
     private String cuisineType;
+
+    @Column(name = "personal_rating")
     private int personalRating;
+
+    @Column(name = "personal_notes")
     private String personalNotes;
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
+    @GenericGenerator(name="native", strategy="native")
     private int id;
 
     /**
