@@ -21,19 +21,19 @@
 Week 4 DAOs/Hibernate
 MVP stories identified: User signup/login, add/view reviews, restaurant search
 - [x] SUBMIT CHECKPOINT 1
-- [ ] First cut at database design
-- [ ] Create the dev version of the database
-- [ ] Create Review entity
-- [ ] Create class to perform CRUD on Review (ReviewDao)
-- [ ] Create config files for db connection (db and test)
-- [ ] Create a test verison of the database for unit testing
-- [ ] Create unit tests for the ReviewDao
-- [ ] Create a class for the DB connection
+- [x] First cut at database design
+- [x] Create the dev version of the database
+- [x] Create Review entity
+- [x] Create class to perform CRUD on Review (ReviewDao)
+- [x] Create config files for db connection (db and test)
+- [x] Create a test verison of the database for unit testing
+- [x] Create unit tests for the ReviewDao
+- [x] Create a class for the DB connection
 - [ ] Create jsp for creating a review
 - [ ] Creating jsp for displaying said review
 - [ ] Create controllers
-- [ ] Add Log4J Logging
-- [ ] Daily Timelog     
+- [x] Add Log4J Logging
+- [x] Daily Timelog     
 Week 5 Hibernate Cont.
 Core MVP functionality in progress
 - [ ] Finalize database
