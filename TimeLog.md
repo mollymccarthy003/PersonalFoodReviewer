@@ -9,3 +9,5 @@
 | 9/22 | Plan week, finish wireframes submit indie checkpoint 1 | 1 | Double checked indie checkpoint and finished my wireframes. submitting tomorrow |
 | 9/26 | Continue Week 4, start week 5 | 3| Today and tomorrow are the last days I'll be able to work on this class this week since I am going out of town on wednesday-sunday |
 | 10/10 | Finished week 4 exercise and implemented hibernate in my indie project | 7 | So happy that I was able to do this today! |
+| 10/12 | Watched and coded along with week 5 demo | 3 | |
+| 10/13 | Week 5 exercise, indie project CRUD | | |
