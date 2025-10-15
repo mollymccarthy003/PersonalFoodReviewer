@@ -25,7 +25,7 @@
                 <td>
                     <ul>
                         <c:forEach var="photo" items="${review.photos}">
-                            <li><img src="${photo.url}" alt="Photo ${photo.id}" width="100"/></li>
+                            <li><img src="${photo.imagePath}" alt="Photo ${photo.id}" width="100"/></li>
                         </c:forEach>
                     </ul>
                 </td>
