@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/test/resources/cleandb.sql" value="e1c7bc25-b9ae-4b7a-9048-96ce5618c38b" />
+  </component>
+</project>

@@ -1,3 +1,18 @@
 [DEBUG] 2025-10-10 17:57:11.068 [main] ReviewDao - The list of users [Review{restaurantName='Sushi Express', cuisineType='Japanese', personalRating=5, personalNotes='Good cheap rolls. Togo or sit down are both great', id=1}, Review{restaurantName='Conrads', cuisineType='American', personalRating=4, personalNotes='Wraps, good after a long day', id=2}, Review{restaurantName='Ians Pizza', cuisineType='American', personalRating=5, personalNotes='Mac and Cheese Slice for the win!', id=3}]
 [DEBUG] 2025-10-10 17:57:11.123 [main] ReviewDao - Searching for user with restaurantName = S
 [DEBUG] 2025-10-10 17:57:11.213 [main] ReviewDao - Searching for user with restaurantName = Sushi Express
+[DEBUG] 2025-10-15 10:37:16.255 [main] ReviewDao - The list of users [Review{restaurantName='Sushi Express', cuisineType='Japanese', personalRating=5, personalNotes='Good cheap rolls. Togo or sit down are both great', id=1}, Review{restaurantName='Conrads', cuisineType='American', personalRating=4, personalNotes='Wraps, good after a long day', id=2}, Review{restaurantName='Ians Pizza', cuisineType='American', personalRating=5, personalNotes='Mac and Cheese Slice for the win!', id=3}]
+[DEBUG] 2025-10-15 10:37:16.358 [main] ReviewDao - Searching for user with restaurantName = S
+[DEBUG] 2025-10-15 10:37:16.513 [main] ReviewDao - Searching for user with restaurantName = Sushi Express
+[DEBUG] 2025-10-15 10:40:16.920 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-10-15 10:40:17.080 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-10-15 11:46:24.468 [main] GenericDao - Searching for Photo where imagePath LIKE %sushi%
+[DEBUG] 2025-10-15 11:46:24.599 [main] GenericDao - Searching for Photo with imagePath = /images/sushi1.jpg
+[DEBUG] 2025-10-15 11:47:24.840 [main] GenericDao - Searching for Photo where imagePath LIKE %sushi%
+[DEBUG] 2025-10-15 11:47:24.977 [main] GenericDao - Searching for Photo with imagePath = /images/sushi1.jpg
+[DEBUG] 2025-10-15 11:57:07.405 [main] GenericDao - Searching for Photo with imagePath = /images/conrads_wrap.jpg
+[DEBUG] 2025-10-15 11:57:29.791 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-10-15 11:59:20.837 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-10-15 11:59:20.982 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-10-15 12:02:55.278 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-10-15 12:02:55.411 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
