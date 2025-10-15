@@ -31,7 +31,7 @@ MVP stories identified: User signup/login, add/view reviews, restaurant search
 - [x] Create a class for the DB connection
 - [ ] Create jsp for creating a review
 - [ ] Creating jsp for displaying said review
-- [ ] Create controllers
+- [x] Create controllers
 - [x] Add Log4J Logging
 - [x] Daily Timelog     
 Week 5 Hibernate Cont.
@@ -42,7 +42,7 @@ Core MVP functionality in progress
 - [x] Daily Timelog
 Week 6 AWS setup / Prepare for Indie Checkpoint 2 
 Peer feedback incorporated
-- [ ] Deployment prep
+- [x] Deployment prep
 - [ ] AWS account setup
 - [ ] Test deployment environment
 - [ ] Unit Tests Passing
