@@ -36,10 +36,10 @@ MVP stories identified: User signup/login, add/view reviews, restaurant search
 - [x] Daily Timelog     
 Week 5 Hibernate Cont.
 Core MVP functionality in progress
-- [ ] Finalize database
-- [ ] Full CRUD for ReviewDAO
-- [ ] Hibernate fully inegrated and running smoothly
-- [ ] Daily Timelog
+- [x] Finalize database
+- [x] Full CRUD for ReviewDAO
+- [x] Hibernate fully inegrated and running smoothly
+- [x] Daily Timelog
 Week 6 AWS setup / Prepare for Indie Checkpoint 2 
 Peer feedback incorporated
 - [ ] Deployment prep
