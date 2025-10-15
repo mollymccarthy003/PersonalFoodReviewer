@@ -11,3 +11,4 @@
 | 10/10 | Finished week 4 exercise and implemented hibernate in my indie project                     | 7 | So happy that I was able to do this today!                                                                                                          |
 | 10/12 | Watched and coded along with week 5 demo                                                   | 3 |                                                                                                                                                     |
 | 10/13 | Week 5 exercise submitted, prepare to implement one to many relationship in indie project  | 7 | Need to remember to check/prepare all base files for development, changing ports passwords etc                                                      |
+| 10 /15 | Completed checkpoint 2 in my indie project, began working on week 6 exercise and had code review | 7 | Feeling great about my progress today!
