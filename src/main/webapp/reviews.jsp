@@ -2,6 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
+<jsp:include page="header.jsp">
+    <jsp:param name="pageTitle" value="Reviews"/>
+    <jsp:param name="page" value="reviews"/>
+</jsp:include>
 <body>
 <div class="container-fluid">
     <h2>Review List</h2>
