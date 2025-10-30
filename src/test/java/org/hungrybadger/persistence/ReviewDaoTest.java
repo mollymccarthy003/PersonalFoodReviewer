@@ -1,6 +1,7 @@
 package org.hungrybadger.persistence;
 
 import org.hungrybadger.entity.Review;
+import org.hungrybadger.entity.User;
 import org.hungrybadger.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,18 +44,32 @@ class ReviewDaoTest {
 
     @Test
     void insertSuccess() {
+        // Get an existing user from the database (assuming one exists in cleanDb.sql)
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+        User existingUser = userDao.getById(1);
+        assertNotNull(existingUser, "User with ID 1 should exist in the database");
+
+        // Create and insert a new review for that user
         Review reviewToInsert = new Review(
                 "Madison Chocolate Company",
                 "French",
                 4,
-                "Worked here for 2 years, gluten free!"
+                "Worked here for 2 years, gluten free!",
+                existingUser
         );
-        int insertedId = genericDao.insert(reviewToInsert);
-        assertNotEquals(0, insertedId);
 
+        int insertedId = genericDao.insert(reviewToInsert);
+        assertNotEquals(0, insertedId, "Inserted ID should not be 0");
+
+        // Retrieve and confirm review was inserted correctly
         Review insertedReview = genericDao.getById(insertedId);
         assertEquals("Madison Chocolate Company", insertedReview.getRestaurantName());
+        assertEquals("French", insertedReview.getCuisineType());
+        assertEquals(4, insertedReview.getPersonalRating());
+        assertEquals("Worked here for 2 years, gluten free!", insertedReview.getPersonalNotes());
+        assertEquals(existingUser.getId(), insertedReview.getUser().getId(), "Review should be linked to the correct user");
     }
+
 
     @Test
     void deleteSuccess() {

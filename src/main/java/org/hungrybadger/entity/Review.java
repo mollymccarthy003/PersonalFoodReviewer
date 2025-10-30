@@ -27,17 +27,29 @@ public class Review {
     @Column(name = "personal_notes")
     private String personalNotes;
 
-    // Bidirectional mapping
+    /**
+     * Each review belongs to one user.
+     * The user_id column will be the foreign key.
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    /**
+     * Bidirectional mapping: one review can have many photos.
+     * Deleting a review cascades to its photos.
+     */
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Photo> photos = new ArrayList<>();
 
     public Review() {}
 
-    public Review(String restaurantName, String cuisineType, int personalRating, String personalNotes) {
+    public Review(String restaurantName, String cuisineType, int personalRating, String personalNotes, User user) {
         this.restaurantName = restaurantName;
         this.cuisineType = cuisineType;
         this.personalRating = personalRating;
         this.personalNotes = personalNotes;
+        this.user = user;
     }
 
     // --- Getters and setters ---
@@ -59,6 +71,9 @@ public class Review {
 
     public List<Photo> getPhotos() { return photos; }
 
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
+
     // Helper methods to manage bidirectional relationship
     public void addPhoto(Photo photo) {
         photos.add(photo);
@@ -78,6 +93,7 @@ public class Review {
                 ", cuisineType='" + cuisineType + '\'' +
                 ", personalRating=" + personalRating +
                 ", personalNotes='" + personalNotes + '\'' +
+                ", user=" + (user != null ? user.getFullName() : "null") +
                 ", photoCount=" + photos.size() +
                 '}';
     }

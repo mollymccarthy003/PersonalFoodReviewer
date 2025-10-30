@@ -20,6 +20,7 @@
 
         <mapping class="org.hungrybadger.entity.Review"/>
         <mapping class="org.hungrybadger.entity.Photo"/>
+        <mapping class="org.hungrybadger.entity.User"/>
 
     </session-factory>
 

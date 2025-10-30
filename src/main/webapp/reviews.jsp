@@ -26,13 +26,6 @@
                 <td>${review.cuisineType}</td>
                 <td>${review.personalRating}</td>
                 <td>${review.personalNotes}</td>
-                <td>
-                    <ul>
-                        <c:forEach var="photo" items="${review.photos}">
-                            <li><img src="${photo.imagePath}" alt="Photo ${photo.id}" width="100"/></li>
-                        </c:forEach>
-                    </ul>
-                </td>
             </tr>
         </c:forEach>
         </tbody>
