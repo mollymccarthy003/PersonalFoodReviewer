@@ -51,14 +51,14 @@ Peer feedback incorporated
 ## Week 7 Security
 - [x] SUBMIT CHECKPOINT 2
 ### User authentication complete
-# moved to week 14
+### moved to week 14
 - [ ] AWS Cognitio Implemented
 - [ ] Google Auth?
 - [ ] Daily Timelog
       
 ## Week 8 Consume a web service / Prepare for Indie Checkpoint 3
 ### Optional: restaurant metadata api? maps api?
-# moved to week 14
+### moved to week 14
 - [ ] Implement outside API 
 - [ ] Design DAO for external data
 - [ ] AWS Working Smoothly
