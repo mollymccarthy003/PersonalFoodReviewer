@@ -1,7 +1,7 @@
 # Time Log Fall 2025
 
 | Date | Task                                                                                       | Hours | Notes                                                                                                                                               |
-|------|--------------------------------------------------------------------------------------------|---|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----|--------------------------------------------------------------------------------------------|---|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | 9/10 | Completed week 1 exercise, all of week 2 activities.                                       | 3 | I am still finalizing this repo/setting things up, but excited to do the exercise tomorrow                                                          |
 | 9/11 | Began week 2 exercise                                                                      | 4 | Have a bug in the doGet method/don't know why sql isnt populating troubleshooting                                                                   |
 | 9/15 | Plan week, watch videos                                                                    | 1 | Still troubleshooting week 2 exercise                                                                                                               |
@@ -17,3 +17,5 @@
 | 10/24 | Week 6 exercise | 5 | Finished week 6, started work on indie checkpoint 3 |
 |10/26 | Indie Project work, beginning week 8  | 5 | Finished act 2 week 8 |
 |10/29| Finished week 8, began week 7 | 5 | Working on indie checkpoint 3 as well |
+|10/30| Week 7 exercise complete | 3 | |
+|12/1| JSPS, AWS setup, UI work, indie checkpoint 3 work | 5 | |
