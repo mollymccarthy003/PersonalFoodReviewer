@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><c:out value="${pageTitle != null ? pageTitle : 'Hungry Badger'}"/></title>
+    <title><c:out value="${pageTitle != null ? pageTitle : 'Hungry Badger Food Reviewer'}"/></title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff; /* white background */
+            background-color: #ffffff;
         }
 
         /* Sidebar */
@@ -17,7 +17,7 @@
             position: fixed;
             left: 0; top:0;
             width: 250px; height: 100vh;
-            background: #000000; /* UW Madison black */
+            background: #000000;
             padding-top: 20px;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             z-index: 1000;
@@ -33,7 +33,7 @@
         nav.sidebar a.active { background-color: #d32f2f; border-left-color:#ffffff; }
 
         /* Main content */
-        .main-content { margin-left:250px; min-height:100vh; }
+        .main-content { margin-left:250px; min-height:100vh;padding-bottom: 80px; }
 
         /* Header */
         .top-header {
@@ -65,13 +65,14 @@
 <!-- Sidebar Navigation -->
 <nav class="sidebar" aria-label="Main Navigation">
     <ul>
-        <li><a href="${pageContext.request.contextPath}/index" class="${page eq 'home' ? 'active' : ''}">Home</a></li>
-        <li><a href="${pageContext.request.contextPath}/reviews/new" class="${page eq 'newReview' ? 'active' : ''}">New Review</a></li>
+        <li><a href="${pageContext.request.contextPath}/index.jsp" class="${page eq 'home' ? 'active' : ''}">Home</a></li>
+        <li><a href="${pageContext.request.contextPath}/reviews/new.jsp" class="${page eq 'newReview' ? 'active' : ''}">New Review</a></li>
         <li><a href="${pageContext.request.contextPath}/reviews" class="${page eq 'reviews' ? 'active' : ''}">View All Reviews</a></li>
-        <li><a href="${pageContext.request.contextPath}/about" class="${page eq 'about' ? 'active' : ''}">About</a></li>
-        <li><a href="${pageContext.request.contextPath}/login" class="${page eq 'login' ? 'active' : ''}">Sign In / Sign Up</a></li>
+        <li><a href="${pageContext.request.contextPath}/about.jsp" class="${page eq 'about' ? 'active' : ''}">About</a></li>
+        <li><a href="${pageContext.request.contextPath}/login.jsp" class="${page eq 'login' ? 'active' : ''}">Sign In / Sign Up</a></li>
     </ul>
 </nav>
+
 
 
 <!-- Main Content Wrapper -->

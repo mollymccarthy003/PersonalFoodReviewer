@@ -138,3 +138,127 @@
 [DEBUG] 2025-10-29 19:34:32.642 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
 [DEBUG] 2025-10-29 19:34:34.024 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
 [DEBUG] 2025-10-29 19:34:34.251 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 10:22:24.097 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 10:22:24.338 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 10:22:25.750 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 10:22:25.971 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 12:26:10.310 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 12:26:10.564 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 12:26:11.998 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 12:26:12.226 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 12:27:54.730 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 12:27:54.967 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 12:27:56.271 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 12:27:56.493 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 13:49:17.930 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 13:49:18.173 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 13:49:19.572 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 13:49:19.804 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 13:50:48.845 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 13:50:49.053 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 13:50:50.411 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 13:50:50.640 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 13:51:50.797 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 13:51:51.058 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 13:51:52.533 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 13:51:52.752 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 13:55:10.388 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 13:55:10.624 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 13:55:11.889 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 13:55:12.106 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:00:44.393 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:00:44.618 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:00:46.030 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:00:46.262 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:02:03.914 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:02:04.248 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:02:05.923 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:02:06.159 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:02:43.755 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:02:43.975 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:02:45.368 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:02:45.565 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:03:27.410 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:03:27.628 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:03:28.942 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:03:29.148 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:04:13.217 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:04:13.450 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:04:14.750 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:04:14.984 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:09:29.570 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:09:29.792 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:09:31.217 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:09:31.432 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:11:18.381 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:11:18.624 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:11:19.964 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:11:20.197 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:12:07.821 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:12:08.074 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:12:09.418 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:12:09.647 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:13:09.461 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:13:09.714 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:13:11.038 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:13:11.229 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:19:31.912 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:19:32.162 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:19:33.389 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:19:33.636 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:25:38.116 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:25:38.370 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:25:39.745 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:25:39.976 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:26:41.061 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:26:41.292 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:26:42.670 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:26:42.903 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:30:37.487 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:30:37.701 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:30:39.052 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:30:39.273 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:34:29.657 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:34:29.879 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:34:31.379 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:34:31.572 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:37:41.809 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:37:42.039 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:37:43.396 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:37:43.608 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:38:23.664 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:38:23.917 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:38:25.287 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:38:25.508 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:41:09.091 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:41:09.294 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:41:10.600 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:41:10.815 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:49:45.975 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:49:46.184 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:49:47.552 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:49:47.774 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:54:38.440 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:54:38.678 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:54:39.997 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:54:40.226 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:55:21.360 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:55:21.583 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:55:22.943 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:55:23.152 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:59:02.030 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:59:02.242 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:59:03.560 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:59:03.752 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 14:59:47.929 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 14:59:48.181 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 14:59:49.584 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 14:59:49.810 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 15:00:57.705 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 15:00:57.948 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 15:00:59.318 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 15:00:59.527 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 15:03:00.314 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 15:03:00.585 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 15:03:02.028 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 15:03:02.252 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
