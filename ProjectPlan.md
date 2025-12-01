@@ -29,8 +29,6 @@ MVP stories identified: User signup/login, add/view reviews, restaurant search
 - [x] Create a test verison of the database for unit testing
 - [x] Create unit tests for the ReviewDao
 - [x] Create a class for the DB connection
-- [ ] Create jsp for creating a review
-- [ ] Creating jsp for displaying said review
 - [x] Create controllers
 - [x] Add Log4J Logging
 - [x] Daily Timelog     
@@ -43,69 +41,70 @@ Core MVP functionality in progress
 Week 6 AWS setup / Prepare for Indie Checkpoint 2 
 Peer feedback incorporated
 - [x] Deployment prep
-- [ ] AWS account setup
-- [ ] Test deployment environment
-- [ ] Unit Tests Passing
-- [ ] DB Working Smoothly
-- [ ] Peer Design Review
-- [ ] Daily Timelog
+- [x] AWS account setup
+- [x] Test deployment environment
+- [x] Unit Tests Passing
+- [x] DB Working Smoothly
+- [x] Peer Design Review
+- [x] Daily Timelog
       
 ## Week 7 Security
-- [ ] SUBMIT CHECKPOINT 2
+- [x] SUBMIT CHECKPOINT 2
 ### User authentication complete
+### moved to week 14
 - [ ] AWS Cognitio Implemented
 - [ ] Google Auth?
 - [ ] Daily Timelog
       
 ## Week 8 Consume a web service / Prepare for Indie Checkpoint 3
 ### Optional: restaurant metadata api? maps api?
+### moved to week 14
 - [ ] Implement outside API 
 - [ ] Design DAO for external data
 - [ ] AWS Working Smoothly
 - [ ] JSP Displays DB Data
 - [ ] Authentication implemented
-- [ ] Add to week 10-16 on project plan (rewrite for accuracy)
 - [ ] Daily Timelog
       
 ## Week 9 RESTful Web Services (start of team project)
-### Users can see restuarent reviews on the web!
-- [ ] SUBMIT CHECKPOINT 3
-- [ ] JSP Integration
-- [ ] Daily Timelog
+### TEAM PROJECT Week
 
 ## Week 10 Work week
-### Core MVP features working end to end
+### TEAM PROJECT Week
+      
+## Week 11 Work week
+### TEAM PROJECT Week
+
+## Week 12 Work Week 
+### TEAM PROJECT Week
+
+## Week 13 
+### TEAM PROJECT Week
+
+## Week 14 Work week Indie Project Code Review
+### Polished MVP for presentation
+- [ ] SUBMIT CHECKPOINT 3
+- [ ] Create jsp for creating a review
+- [ ] Creating jsp for displaying said review
+- [ ] AWS Cognitio Implemented
+- [ ] Implement outside API 
+- [ ] Design DAO for external data
+- [ ] AWS Working Smoothly
+- [ ] JSP Displays DB Data
+- [ ] Authentication implemented
+- [ ] JSP Integration
 - [ ] Functional search form
 - [ ] Functional review form
 - [ ] UI polishing (bootstrap?)
-- [ ] Daily Timelog
-      
-## Week 11 Work week
-### Post MVP starts here
-- [ ] TBD
- - [ ] Daily Timelog
-
-## Week 12 Work Week UI
-### 
-- [ ] TBD
-- [ ] Daily Timelog
-
-## Week 13 Indie Project Code Review
-### TBD
-- [ ] TBD
-
-## Week 14 Work week
-### Polished MVP for presentation
-- [ ] TBD
 
 ## Week 15 Work week
 ### MVP complete and fully deployed
 - [ ] Final deployed app on AWS
-- [ ] Documentation Updated
+- [ ] Documentation Update/Finalized
 - [ ] Daily Timelog
 
 ## Week 16 Individual Project Presentations
-### Showcase MVP + extra features
+### Showcase MVP + extra features (DUE 12/17)
 - [ ] Project Presentation + Demo
 - [ ] Submit Github Link
 - [ ] Daily Timelog
