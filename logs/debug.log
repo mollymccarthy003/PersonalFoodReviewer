@@ -262,3 +262,19 @@
 [DEBUG] 2025-12-01 15:03:00.585 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
 [DEBUG] 2025-12-01 15:03:02.028 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
 [DEBUG] 2025-12-01 15:03:02.252 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 20:08:51.497 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 20:08:51.748 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 20:08:53.191 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 20:08:53.408 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 20:13:03.948 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 20:13:04.192 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 20:13:05.576 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 20:13:05.790 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 20:18:09.359 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 20:18:09.639 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 20:18:11.036 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 20:18:11.256 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-01 20:26:05.429 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-01 20:26:05.674 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-01 20:26:07.046 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-01 20:26:07.259 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
