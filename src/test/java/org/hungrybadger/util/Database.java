@@ -31,9 +31,9 @@ public class Database {
     private void loadProperties() {
         properties = new Properties();
         try {
-            properties.load(this.getClass().getResourceAsStream("/database.properties"));
+            properties.load(this.getClass().getResourceAsStream("/database-test.properties"));
         } catch (Exception e) {
-            logger.error("Cannot load database properties", e);
+            logger.error("Cannot load test database properties", e);
         }
     }
 

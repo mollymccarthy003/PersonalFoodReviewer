@@ -19,3 +19,4 @@
 |10/29| Finished week 8, began week 7                                                                          | 5     | Working on indie checkpoint 3 as well                                                                                                                |
 |10/30| Week 7 exercise complete                                                                               | 3     |                                                                                                                                                      |
 |12/1| JSPS, AWS setup, UI work, indie checkpoint 3 work, added endpoints for reviews                         | 9     | need to add photo endpoints and get cognito working                                                                                                  |
+|12/3| Cognito , Checkpoint 3 | 7 | Cognito is working, need to redo aws setup and then done with checkpoint 3 |

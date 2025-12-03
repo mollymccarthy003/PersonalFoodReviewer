@@ -20,8 +20,27 @@
         <junit-vintage-version>4.12.0</junit-vintage-version>
         <jupiter-version>5.0.0</jupiter-version>
         <hibernate-version>6.4.3.Final</hibernate-version>
+        <java-jwt-version>3.4.1</java-jwt-version>
+        <json-version>20170516</json-version>
+        <commons-io-version>2.11.0</commons-io-version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${java-jwt-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json-version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io-version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -90,6 +109,24 @@
         <finalName>Week3Exercise</finalName>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.2</version>
+                    <configuration>
+                        <webResources>
+                            <resource>
+                                <directory>src/main/.platform</directory>
+                                <targetPath>.platform</targetPath>
+                                <filtering>true</filtering>
+                            </resource>
+                            <resource>
+                                <directory>src/main/.ebextensions</directory>
+                                <targetPath>.ebextensions</targetPath>
+                                <filtering>true</filtering>
+                            </resource>
+                        </webResources>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
