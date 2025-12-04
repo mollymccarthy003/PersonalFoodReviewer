@@ -95,9 +95,6 @@
     </ul>
 </nav>
 
-
-
-
 <!-- Main Content Wrapper -->
 <div class="main-content">
     <!-- Top Header -->
@@ -106,7 +103,7 @@
             <div class="logo-text">Hungry Badger</div>
         </div>
         <div class="search-section">
-            <form action="searchReviews.jsp" method="get">
+            <form action="searchReview" method="get">
                 <input type="text" name="query" class="search-bar" placeholder="Search reviews...">
             </form>
         </div>

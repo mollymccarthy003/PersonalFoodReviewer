@@ -3967,3 +3967,45 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1' for key '
 [DEBUG] 2025-12-03 17:16:56.293 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
 [DEBUG] 2025-12-03 17:16:57.714 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
 [DEBUG] 2025-12-03 17:16:57.945 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 17:17:09.740 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5
+[DEBUG] 2025-12-03 18:21:45.187 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-03 18:21:45.786 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-03 18:21:47.928 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-03 18:21:48.286 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 18:22:08.920 [RMI TCP Connection(4)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5
+[DEBUG] 2025-12-03 18:26:24.150 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-03 18:26:24.444 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-03 18:26:26.485 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-03 18:26:26.804 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 18:26:42.066 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5
+[DEBUG] 2025-12-03 18:29:35.665 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-03 18:29:36.067 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-03 18:29:38.149 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-03 18:29:38.371 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 18:29:51.825 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5
+[DEBUG] 2025-12-03 18:30:42.018 [http-nio-8080-exec-4] SearchReview - submit param: null
+[DEBUG] 2025-12-03 18:30:42.018 [http-nio-8080-exec-4] SearchReview - search term: null
+[DEBUG] 2025-12-03 18:51:19.800 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-03 18:51:20.125 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-03 18:51:22.111 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-03 18:51:22.382 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 18:51:39.096 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5
+[DEBUG] 2025-12-03 18:58:46.800 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-03 18:58:47.044 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-03 18:58:48.465 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-03 18:58:48.694 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 18:59:02.349 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5
+[DEBUG] 2025-12-03 18:59:27.286 [http-nio-8080-exec-5] SearchReview - submit param: null
+[DEBUG] 2025-12-03 18:59:27.287 [http-nio-8080-exec-5] SearchReview - search term: null
+[DEBUG] 2025-12-03 19:00:47.379 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-03 19:00:47.786 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-03 19:00:49.419 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-03 19:00:49.660 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 19:01:00.415 [RMI TCP Connection(5)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5
+[DEBUG] 2025-12-03 19:01:41.229 [http-nio-8080-exec-10] SearchReview - submit param: null
+[DEBUG] 2025-12-03 19:01:41.229 [http-nio-8080-exec-10] SearchReview - search term: null
+[DEBUG] 2025-12-03 19:14:53.009 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-03 19:14:53.273 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-03 19:14:54.899 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-03 19:14:55.124 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-03 19:15:11.614 [RMI TCP Connection(4)-127.0.0.1] StartupServlet - Cognito properties loaded successfully: CLIENT_ID=3alimjo7jesmmh3d42evnjpbq5

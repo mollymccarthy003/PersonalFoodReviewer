@@ -108,7 +108,7 @@ public class Auth extends HttpServlet {
         HashMap<String, String> params = new HashMap<>();
         params.put("grant_type", "authorization_code");
         params.put("client_id", clientId);
-        params.put("client-secret", clientSecret);
+        params.put("client_secret", clientSecret);
         params.put("code", code);
         params.put("redirect_uri", redirectUrl);
 
