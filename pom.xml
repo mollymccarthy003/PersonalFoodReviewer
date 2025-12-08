@@ -23,8 +23,14 @@
         <java-jwt-version>3.4.1</java-jwt-version>
         <json-version>20170516</json-version>
         <commons-io-version>2.11.0</commons-io-version>
+        <software-amazon-awssdk-version>2.21.7</software-amazon-awssdk-version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <version>${software-amazon-awssdk-version}</version>
+        </dependency>
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>

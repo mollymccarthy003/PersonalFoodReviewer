@@ -113,13 +113,13 @@ public class GenericDao<T> {
 
     /**
      * Get entities by property (exact match).
-     * Example: getByPropertyEqual("restaurantName", "Sushi Express")
+     * Works for any type (String, int, etc.)
      *
      * @param propertyName property name
      * @param value        property value
      * @return list of matching entities
      */
-    public List<T> getByPropertyEqual(String propertyName, String value) {
+    public List<T> getByPropertyEqual(String propertyName, Object value) {
         Session session = getSession();
         logger.debug("Searching for {} with {} = {}", type.getSimpleName(), propertyName, value);
 
@@ -163,6 +163,4 @@ public class GenericDao<T> {
     private Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }
-
-
 }

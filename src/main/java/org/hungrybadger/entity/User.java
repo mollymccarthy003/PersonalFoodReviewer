@@ -1,8 +1,7 @@
 package org.hungrybadger.entity;
 
 import jakarta.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Entity(name = "User")
 @Table(name = "user")
@@ -22,17 +21,14 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Review> reviews = new HashSet<>();
+    private List<Review> reviews;
 
     public User() {}
 
-    public User(String cognitoSub, String fullName, String email) {
-        this.cognitoSub = cognitoSub;
-        this.fullName = fullName;
-        this.email = email;
-    }
-
+    // Getters / Setters
     public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
     public String getCognitoSub() { return cognitoSub; }
     public void setCognitoSub(String cognitoSub) { this.cognitoSub = cognitoSub; }
 
@@ -42,15 +38,6 @@ public class User {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-    public Set<Review> getReviews() { return reviews; }
-    public void setReviews(Set<Review> reviews) { this.reviews = reviews; }
-
-    @Override
-    public String toString() {
-        return "User{id=" + id +
-                ", cognitoSub='" + cognitoSub + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
+    public List<Review> getReviews() { return reviews; }
+    public void setReviews(List<Review> reviews) { this.reviews = reviews; }
 }

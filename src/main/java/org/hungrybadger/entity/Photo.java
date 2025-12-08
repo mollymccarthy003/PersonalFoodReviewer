@@ -26,8 +26,6 @@ public class Photo {
         this.review = review;
     }
 
-    // --- Getters and setters ---
-
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -41,8 +39,9 @@ public class Photo {
     public String toString() {
         return "Photo{" +
                 "id=" + id +
+                ", review=" + review +
                 ", imagePath='" + imagePath + '\'' +
-                ", reviewId=" + (review != null ? review.getId() : null) +
                 '}';
     }
+
 }

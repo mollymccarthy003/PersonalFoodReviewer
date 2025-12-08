@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "Review")
 @Table(name = "review")
@@ -39,7 +41,7 @@ public class Review {
      * Bidirectional mapping: one review can have many photos.
      * Deleting a review cascades to its photos.
      */
-    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true,  fetch = FetchType.EAGER)
     private List<Photo> photos = new ArrayList<>();
 
     public Review() {}
