@@ -4,15 +4,6 @@
 -- Server version 9.4.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- ------------------------------------------------------
 -- Drop existing tables
@@ -26,10 +17,13 @@ DROP TABLE IF EXISTS `user`;
 -- ------------------------------------------------------
 CREATE TABLE user (
                       id INT NOT NULL AUTO_INCREMENT,
+                      cognito_sub VARCHAR(255) NOT NULL UNIQUE,
                       full_name VARCHAR(255) NOT NULL,
                       email VARCHAR(255) NOT NULL UNIQUE,
                       PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_0900_ai_ci;
 
 -- ------------------------------------------------------
 -- Table structure for table `review`
@@ -46,7 +40,10 @@ CREATE TABLE `review` (
                           CONSTRAINT `fk_review_user`
                               FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
                                   ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB
+  AUTO_INCREMENT=4
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_0900_ai_ci;
 
 -- ------------------------------------------------------
 -- Table structure for table `photo`
@@ -60,16 +57,19 @@ CREATE TABLE `photo` (
                          CONSTRAINT `fk_photo_review`
                              FOREIGN KEY (`review_id`) REFERENCES `review` (`id`)
                                  ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB
+  AUTO_INCREMENT=5
+  DEFAULT CHARSET=utf8mb4
+  COLLATE=utf8mb4_0900_ai_ci;
 
 -- ------------------------------------------------------
 -- Insert sample data
 -- ------------------------------------------------------
 LOCK TABLES `user` WRITE;
-INSERT INTO user (id, full_name, email) VALUES
-                                            (1, 'Molly McCarthy', 'molly@example.com'),
-                                            (2, 'John Doe', 'john@example.com'),
-                                            (3, 'Jane Smith', 'jane@example.com');
+INSERT INTO user (id, cognito_sub, full_name, email) VALUES
+                                                         (1, 'sub-1111-aaaa-bbbb-ccccdddd0001', 'Molly McCarthy', 'molly@example.com'),
+                                                         (2, 'sub-2222-bbbb-cccc-ddddeeee0002', 'John Doe', 'john@example.com'),
+                                                         (3, 'sub-3333-cccc-dddd-eeeeffff0003', 'Jane Smith', 'jane@example.com');
 UNLOCK TABLES;
 
 LOCK TABLES `review` WRITE;
@@ -91,14 +91,3 @@ INSERT INTO `photo` VALUES
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
--- ------------------------------------------------------
--- Restore session variables
--- ------------------------------------------------------
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

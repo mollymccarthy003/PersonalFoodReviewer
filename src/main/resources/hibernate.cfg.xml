@@ -5,7 +5,7 @@
 <!--suppress ALL -->
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://awseb-e-zupqkytsz6-stack-awsebrdsdatabase-xwxhsrtpkzzl.crygi80c8kvx.us-east-2.rds.amazonaws.com:3306/hungryBadger</property>
+        <property name="connection.url">jdbc:mysql://awseb-e-wvp5gppw92-stack-awsebrdsdatabase-qnbkrfbnb1uy.crygi80c8kvx.us-east-2.rds.amazonaws.com:3306/hungryBadger</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <property name="connection.username">root</property>

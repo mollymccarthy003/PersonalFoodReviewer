@@ -65,33 +65,37 @@
 <!-- Sidebar Navigation -->
 <nav class="sidebar" aria-label="Main Navigation">
     <ul>
-
         <li>
             <c:choose>
                 <c:when test="${empty sessionScope.userName}">
-                    <a href="${pageContext.request.contextPath}/logIn" class="${page eq 'login' ? 'active' : ''}">
+                    <a href="${pageContext.request.contextPath}/logIn"
+                       class="${page eq 'login' ? 'active' : ''}">
                         Sign In / Sign Up
                     </a>
                 </c:when>
                 <c:otherwise>
-                    <h3>Welcome ${sessionScope.userName}</h3>
+                    <h3 class="welcome-message">Welcome ${sessionScope.userName}</h3>
                 </c:otherwise>
             </c:choose>
         </li>
 
-
         <!-- Standard Navigation Items -->
-        <li><a href="${pageContext.request.contextPath}/index.jsp"
-               class="${page eq 'home' ? 'active' : ''}">Home</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/reviews/new.jsp"
-               class="${page eq 'newReview' ? 'active' : ''}">New Review</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/reviews"
-               class="${page eq 'reviews' ? 'active' : ''}">View All Reviews</a></li>
-
-        <li><a href="${pageContext.request.contextPath}/about.jsp"
-               class="${page eq 'about' ? 'active' : ''}">About</a></li>
+        <li>
+            <a href="${pageContext.request.contextPath}/index.jsp"
+               class="${page eq 'home' ? 'active' : ''}">Home</a>
+        </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/reviews/new.jsp"
+               class="${page eq 'newReview' ? 'active' : ''}">New Review</a>
+        </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/reviews"
+               class="${page eq 'reviews' ? 'active' : ''}">View All Reviews</a>
+        </li>
+        <li>
+            <a href="${pageContext.request.contextPath}/about.jsp"
+               class="${page eq 'about' ? 'active' : ''}">About</a>
+        </li>
     </ul>
 </nav>
 

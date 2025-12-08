@@ -2,26 +2,30 @@
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-<!--suppress ALL -->
+
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3307/hungryBadger_test</property>
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
-        <property name="connection.username">root</property>
-        <property name="connection.password">Marthacodes</property>
+        <!-- DB Connection -->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/hungryBadger_test</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">Marthacodes</property>
 
+        <!-- Connection Pool -->
         <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.max_size">20</property>
         <property name="hibernate.c3p0.timeout">300</property>
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
+        <!-- Hibernate Options -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Entity Mapping -->
         <mapping class="org.hungrybadger.entity.Review"/>
         <mapping class="org.hungrybadger.entity.Photo"/>
         <mapping class="org.hungrybadger.entity.User"/>
 
     </session-factory>
-
 </hibernate-configuration>

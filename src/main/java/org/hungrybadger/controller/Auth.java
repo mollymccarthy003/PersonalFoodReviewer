@@ -5,7 +5,6 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hungrybadger.auth.*;
@@ -15,11 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URI;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -43,14 +40,13 @@ public class Auth extends HttpServlet {
     private String clientId;
     private String clientSecret;
     private String oauthUrl;
-    private String loginUrl;
-    private String redirectUrl;
     private String region;
     private String poolId;
 
     @Override
     public void init() throws ServletException {
         super.init();
+        logger.info("Initializing Auth servlet");
         loadProperties();
         loadKeys();
     }
@@ -66,10 +62,10 @@ public class Auth extends HttpServlet {
         clientId = props.getProperty("client.id");
         clientSecret = props.getProperty("client.secret");
         oauthUrl = props.getProperty("oauthURL");
-        loginUrl = props.getProperty("loginURL");
-        redirectUrl = props.getProperty("redirectURL");
         region = props.getProperty("region");
         poolId = props.getProperty("poolId");
+
+        logger.info("Loaded Cognito properties: clientId={}, region={}, poolId={}", clientId, region, poolId);
     }
 
     @Override
@@ -77,23 +73,27 @@ public class Auth extends HttpServlet {
         String code = req.getParameter("code");
 
         if (code == null) {
-            // User not authenticated → redirect to login
+            logger.warn("No code parameter found; redirecting to login page");
             resp.sendRedirect(req.getContextPath() + "/logIn");
             return;
         }
 
         try {
-            // Exchange code for tokens
-            HttpRequest tokenRequest = buildAuthRequest(code);
+            String redirectUri = req.getScheme() + "://" +
+                    req.getServerName() +
+                    (req.getServerPort() == 80 || req.getServerPort() == 443 ? "" : ":" + req.getServerPort()) +
+                    req.getContextPath() + "/auth";
+
+            HttpRequest tokenRequest = buildAuthRequest(code, redirectUri);
             TokenResponse tokenResponse = getToken(tokenRequest);
 
-            // Validate ID token & extract username
-            String username = validate(tokenResponse);
+            // Validate token and extract display name
+            String displayName = validate(tokenResponse);
 
-            // Save username in session
-            req.getSession().setAttribute("userName", username);
+            // Set session attribute
+            req.getSession().setAttribute("userName", displayName);
+            logger.info("Session attribute set: userName={}", displayName);
 
-            // Redirect to home page
             resp.sendRedirect(req.getContextPath() + "/index.jsp");
 
         } catch (Exception e) {
@@ -102,21 +102,24 @@ public class Auth extends HttpServlet {
         }
     }
 
-    private HttpRequest buildAuthRequest(String code) {
+    private HttpRequest buildAuthRequest(String code, String redirectUri) {
         String keys = clientId + ":" + clientSecret;
 
+        // Original style using keySet() and params.get(k)
         HashMap<String, String> params = new HashMap<>();
         params.put("grant_type", "authorization_code");
         params.put("client_id", clientId);
         params.put("client_secret", clientSecret);
         params.put("code", code);
-        params.put("redirect_uri", redirectUrl);
+        params.put("redirect_uri", redirectUri);
 
         String form = params.keySet().stream()
                 .map(k -> k + "=" + URLEncoder.encode(params.get(k), StandardCharsets.UTF_8))
                 .collect(Collectors.joining("&"));
 
         String basicAuth = Base64.getEncoder().encodeToString(keys.getBytes());
+
+        logger.info("Built form for token request: {}", form);
 
         return HttpRequest.newBuilder()
                 .uri(URI.create(oauthUrl))
@@ -136,39 +139,40 @@ public class Auth extends HttpServlet {
 
     private void loadKeys() {
         try {
-            URL jwksURL = new URL(String.format("https://cognito-idp.%s.amazonaws.com/%s/.well-known/jwks.json", region, poolId));
-            File file = new File("jwks.json");
-            FileUtils.copyURLToFile(jwksURL, file);
-
+            String jwksUrl = String.format("https://cognito-idp.%s.amazonaws.com/%s/.well-known/jwks.json", region, poolId);
             ObjectMapper mapper = new ObjectMapper();
-            jwks = mapper.readValue(file, Keys.class);
+            jwks = mapper.readValue(new URI(jwksUrl).toURL(), Keys.class);
+            logger.info("JWKS loaded successfully: {} keys", jwks.getKeys().size());
         } catch (Exception e) {
             logger.error("Error loading JWKS", e);
         }
     }
 
     private String validate(TokenResponse tokenResponse) throws Exception {
-        CognitoTokenHeader header = new ObjectMapper().readValue(
-                CognitoJWTParser.getHeader(tokenResponse.getIdToken()).toString(),
-                CognitoTokenHeader.class
-        );
-
-        BigInteger modulus = new BigInteger(1, Base64.getDecoder().decode(jwks.getKeys().get(0).getN()));
-        BigInteger exponent = new BigInteger(1, Base64.getDecoder().decode(jwks.getKeys().get(0).getE()));
-
-        PublicKey publicKey = KeyFactory.getInstance("RSA")
-                .generatePublic(new RSAPublicKeySpec(modulus, exponent));
-
-        Algorithm algorithm = Algorithm.RSA256((RSAPublicKey) publicKey, null);
-
-        String iss = String.format("https://cognito-idp.%s.amazonaws.com/%s", region, poolId);
-
-        JWTVerifier verifier = JWT.require(algorithm)
-                .withIssuer(iss)
+        DecodedJWT jwt = JWT.require(Algorithm.RSA256(
+                        (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(
+                                new RSAPublicKeySpec(
+                                        new BigInteger(1, Base64.getUrlDecoder().decode(jwks.getKeys().get(0).getN())),
+                                        new BigInteger(1, Base64.getUrlDecoder().decode(jwks.getKeys().get(0).getE()))
+                                )
+                        ),
+                        null
+                ))
+                .withIssuer(String.format("https://cognito-idp.%s.amazonaws.com/%s", region, poolId))
                 .withClaim("token_use", "id")
-                .build();
+                .build()
+                .verify(tokenResponse.getIdToken());
 
-        DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
-        return jwt.getClaim("cognito:username").asString();
+        // Extract display name with fallback: name → email → username
+        String displayName = jwt.getClaim("name").asString();
+        if (displayName == null || displayName.isEmpty()) {
+            displayName = jwt.getClaim("email").asString();
+        }
+        if (displayName == null || displayName.isEmpty()) {
+            displayName = jwt.getClaim("cognito:username").asString();
+        }
+
+        logger.info("Display name from JWT with fallback: {}", displayName);
+        return displayName;
     }
 }
