@@ -65,28 +65,30 @@ public class Auth extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
-        if (code == null) {
+        HttpSession session = req.getSession(false);
+        User user = (session != null) ? (User) session.getAttribute("user") : null;
+
+        if (code == null && user == null) {
             resp.sendRedirect(req.getContextPath() + "/logIn");
             return;
         }
 
         try {
-            String redirectUri = req.getScheme() + "://" + req.getServerName() +
-                    (req.getServerPort() == 80 || req.getServerPort() == 443 ? "" : ":" + req.getServerPort()) +
-                    req.getContextPath() + "/auth";
+            String scheme = req.getHeader("X-Forwarded-Proto") != null ? req.getHeader("X-Forwarded-Proto") : req.getScheme();
+            String redirectUri = "https://" + req.getServerName() + req.getContextPath() + "/auth";
+
+
+            logger.info("Redirect URI: {}", redirectUri);
 
             HttpRequest tokenRequest = buildAuthRequest(code, redirectUri);
             TokenResponse tokenResponse = getToken(tokenRequest);
             DecodedJWT jwt = validate(tokenResponse);
 
-            // Extract claims
             String fullName = jwt.getClaim("name").asString();
             String email = jwt.getClaim("email").asString();
             String cognitoSub = jwt.getSubject();
 
-            // Check DB for existing user
             List<User> existingUsers = userDao.getByPropertyEqual("cognitoSub", cognitoSub);
-            User user;
             if (existingUsers.isEmpty()) {
                 user = new User();
                 user.setFullName(fullName);
@@ -98,17 +100,17 @@ public class Auth extends HttpServlet {
                 user = existingUsers.get(0);
             }
 
-            // Store in session
-            HttpSession session = req.getSession(true);
+            session = req.getSession(true);
             session.setAttribute("user", user);
 
             resp.sendRedirect(req.getContextPath() + "/reviews");
 
         } catch (Exception e) {
             logger.error("Auth error", e);
-            resp.sendRedirect(req.getContextPath() + "/error.jsp");
+            resp.sendRedirect(req.getContextPath() + "/logIn?error=auth");
         }
     }
+
 
     private HttpRequest buildAuthRequest(String code, String redirectUri) {
         String keys = clientId + ":" + clientSecret;

@@ -85,7 +85,7 @@
                class="${page eq 'home' ? 'active' : ''}">Home</a>
         </li>
         <li>
-            <a href="${pageContext.request.contextPath}/reviewForm.jsp"
+            <a href="${pageContext.request.contextPath}/reviewForm.jsp?action=add"
                class="${page eq 'newReview' ? 'active' : ''}">New Review</a>
         </li>
         <li>

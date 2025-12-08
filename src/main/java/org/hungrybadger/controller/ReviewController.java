@@ -48,7 +48,11 @@ public class ReviewController extends HttpServlet {
         logger.info("GET /reviews");
 
         User user = getLoggedInUser(request, response);
-        if (user == null) return;
+        if (user == null) {
+            // User not logged in, redirect to login page
+            response.sendRedirect(request.getContextPath() + "/auth");
+            return;
+        }
 
         String idParam = request.getParameter("id");
         String actionParam = request.getParameter("action");
@@ -82,9 +86,13 @@ public class ReviewController extends HttpServlet {
 
         // List all reviews for the logged-in user
         List<Review> reviews = reviewDao.getByPropertyEqual("user", user);
+        if (reviews == null) {
+            reviews = List.of(); // Avoid null pointer in JSP
+        }
         request.setAttribute("reviews", reviews);
         request.getRequestDispatcher("/reviews.jsp").forward(request, response);
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -145,16 +153,42 @@ public class ReviewController extends HttpServlet {
 
     private void addReview(HttpServletRequest request, User user) {
         Review review = new Review();
-        review.setRestaurantName(request.getParameter("restaurantName"));
-        review.setCuisineType(request.getParameter("cuisineType"));
-        review.setPersonalRating(Integer.parseInt(request.getParameter("personalRating")));
-        review.setPersonalNotes(request.getParameter("personalNotes"));
+
+        // Get restaurant name safely
+        String restaurantName = request.getParameter("restaurantName");
+        review.setRestaurantName(restaurantName != null ? restaurantName.trim() : "");
+
+        // Get cuisine type safely
+        String cuisineType = request.getParameter("cuisineType");
+        review.setCuisineType(cuisineType != null ? cuisineType.trim() : "");
+
+        // Parse personal rating safely
+        int rating = 1; // default rating
+        String ratingParam = request.getParameter("personalRating");
+        if (ratingParam != null && !ratingParam.isEmpty()) {
+            try {
+                rating = Integer.parseInt(ratingParam);
+                if (rating < 1) rating = 1;
+                if (rating > 5) rating = 5;
+            } catch (NumberFormatException e) {
+                logger.warn("Invalid personalRating '{}', defaulting to 1", ratingParam);
+                rating = 1;
+            }
+        }
+        review.setPersonalRating(rating);
+
+        // Get personal notes safely
+        String notes = request.getParameter("personalNotes");
+        review.setPersonalNotes(notes != null ? notes.trim() : "");
+
+        // Set the logged-in user
         review.setUser(user);
 
+        // Insert review into DB
         reviewDao.insert(review);
-        // TODO: handle photo uploads if needed
-    }
 
+        logger.info("Added new review '{}' by user {}", review.getRestaurantName(), user.getEmail());
+    }
 
 
     private void updateReview(HttpServletRequest request, int id, User user) {

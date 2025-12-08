@@ -42,7 +42,7 @@ public class Review {
      * Deleting a review cascades to its photos.
      */
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true,  fetch = FetchType.EAGER)
-    private List<Photo> photos = new ArrayList<>();
+    private List<Photo> photos;
 
     public Review() {}
 

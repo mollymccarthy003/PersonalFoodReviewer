@@ -8786,3 +8786,97 @@ java.lang.IllegalArgumentException: Illegal base64 character 2d
 [DEBUG] 2025-12-08 15:53:46.416 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
 [DEBUG] 2025-12-08 15:53:47.768 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
 [DEBUG] 2025-12-08 15:53:48.004 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[INFO ] 2025-12-08 15:54:02.109 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Loading Cognito properties from local resources
+[INFO ] 2025-12-08 15:54:02.127 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully
+[DEBUG] 2025-12-08 15:54:21.697 [http-nio-8080-exec-5] GenericDao - Searching for User with cognitoSub = a1bb6510-f041-705b-c63d-060cd3cffeb3
+[INFO ] 2025-12-08 15:54:23.463 [http-nio-8080-exec-6] ReviewController - GET /reviews
+[INFO ] 2025-12-08 15:54:23.463 [http-nio-8080-exec-6] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 15:54:23.463 [http-nio-8080-exec-6] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@6e8a0221
+[INFO ] 2025-12-08 15:55:12.200 [http-nio-8080-exec-2] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[INFO ] 2025-12-08 15:59:22.006 [http-nio-8080-exec-4] ReviewController - GET /reviews
+[INFO ] 2025-12-08 15:59:22.006 [http-nio-8080-exec-4] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 15:59:22.006 [http-nio-8080-exec-4] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@6e8a0221
+[DEBUG] 2025-12-08 16:04:18.284 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:04:18.526 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:04:19.870 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:04:20.080 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[INFO ] 2025-12-08 16:04:34.154 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Loading Cognito properties from local resources
+[INFO ] 2025-12-08 16:04:34.170 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully
+[INFO ] 2025-12-08 16:05:03.057 [http-nio-8080-exec-4] ReviewController - GET /reviews
+[WARN ] 2025-12-08 16:05:03.057 [http-nio-8080-exec-4] ReviewController - No user object in session, redirecting to /auth
+[DEBUG] 2025-12-08 16:05:05.967 [http-nio-8080-exec-8] GenericDao - Searching for User with cognitoSub = a1bb6510-f041-705b-c63d-060cd3cffeb3
+[INFO ] 2025-12-08 16:05:06.455 [http-nio-8080-exec-9] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:05:06.455 [http-nio-8080-exec-9] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:05:06.455 [http-nio-8080-exec-9] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@64a83283
+[INFO ] 2025-12-08 16:05:17.494 [http-nio-8080-exec-1] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:08:00.901 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:08:01.132 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:08:02.413 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:08:02.608 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[INFO ] 2025-12-08 16:08:16.290 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Loading Cognito properties from local resources
+[INFO ] 2025-12-08 16:08:16.306 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully
+[INFO ] 2025-12-08 16:08:32.160 [http-nio-8080-exec-5] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:08:32.160 [http-nio-8080-exec-6] ReviewController - GET /reviews
+[WARN ] 2025-12-08 16:08:32.160 [http-nio-8080-exec-6] ReviewController - No user object in session, redirecting to /auth
+[WARN ] 2025-12-08 16:08:32.160 [http-nio-8080-exec-5] ReviewController - No user object in session, redirecting to /auth
+[DEBUG] 2025-12-08 16:08:36.007 [http-nio-8080-exec-9] GenericDao - Searching for User with cognitoSub = a1bb6510-f041-705b-c63d-060cd3cffeb3
+[INFO ] 2025-12-08 16:08:36.487 [http-nio-8080-exec-10] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:08:36.487 [http-nio-8080-exec-10] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:08:36.487 [http-nio-8080-exec-10] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@4c6d987e
+[INFO ] 2025-12-08 16:08:47.932 [http-nio-8080-exec-3] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:10:17.991 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:10:18.214 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:10:19.536 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:10:19.747 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[INFO ] 2025-12-08 16:10:32.845 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Loading Cognito properties from local resources
+[INFO ] 2025-12-08 16:10:32.860 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully
+[INFO ] 2025-12-08 16:10:46.054 [http-nio-8080-exec-4] ReviewController - GET /reviews
+[WARN ] 2025-12-08 16:10:46.054 [http-nio-8080-exec-4] ReviewController - No user object in session, redirecting to /auth
+[DEBUG] 2025-12-08 16:11:47.708 [http-nio-8080-exec-9] GenericDao - Searching for User with cognitoSub = a1bb6510-f041-705b-c63d-060cd3cffeb3
+[INFO ] 2025-12-08 16:11:48.221 [http-nio-8080-exec-10] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:11:48.221 [http-nio-8080-exec-10] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:11:48.221 [http-nio-8080-exec-10] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@739f320
+[INFO ] 2025-12-08 16:11:59.531 [http-nio-8080-exec-2] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[INFO ] 2025-12-08 16:11:59.736 [http-nio-8080-exec-2] ReviewController - Added new review '' by user mamccarthy14@gmail.com
+[INFO ] 2025-12-08 16:11:59.739 [http-nio-8080-exec-3] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:11:59.740 [http-nio-8080-exec-3] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:11:59.740 [http-nio-8080-exec-3] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@739f320
+[DEBUG] 2025-12-08 16:14:15.518 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:14:15.757 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:14:17.090 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:14:17.299 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[INFO ] 2025-12-08 16:14:29.335 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Loading Cognito properties from local resources
+[INFO ] 2025-12-08 16:14:29.351 [RMI TCP Connection(2)-127.0.0.1] StartupServlet - Cognito properties loaded successfully
+[INFO ] 2025-12-08 16:14:40.697 [http-nio-8080-exec-4] ReviewController - GET /reviews
+[WARN ] 2025-12-08 16:14:40.697 [http-nio-8080-exec-4] ReviewController - No user object in session, redirecting to /auth
+[DEBUG] 2025-12-08 16:14:43.856 [http-nio-8080-exec-7] GenericDao - Searching for User with cognitoSub = a1bb6510-f041-705b-c63d-060cd3cffeb3
+[INFO ] 2025-12-08 16:14:44.328 [http-nio-8080-exec-8] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:14:44.329 [http-nio-8080-exec-8] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:14:44.329 [http-nio-8080-exec-8] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@2bd4f0e
+[INFO ] 2025-12-08 16:14:53.700 [http-nio-8080-exec-2] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[INFO ] 2025-12-08 16:14:53.915 [http-nio-8080-exec-2] ReviewController - Added new review 'Mcdonalds' by user mamccarthy14@gmail.com
+[INFO ] 2025-12-08 16:14:53.918 [http-nio-8080-exec-1] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:14:53.918 [http-nio-8080-exec-1] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:14:53.919 [http-nio-8080-exec-1] GenericDao - Searching for Review with user = org.hungrybadger.entity.User@2bd4f0e
+[INFO ] 2025-12-08 16:14:56.691 [http-nio-8080-exec-3] ReviewController - GET /reviews
+[INFO ] 2025-12-08 16:14:56.691 [http-nio-8080-exec-3] ReviewController - Authenticated user: Molly McCarthy (mamccarthy14@gmail.com)
+[DEBUG] 2025-12-08 16:25:08.447 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:25:08.890 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:25:10.484 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:25:10.731 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-08 16:27:26.884 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:27:27.143 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:27:28.567 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:27:28.818 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-08 16:45:18.702 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:45:18.919 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:45:20.276 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:45:20.530 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-08 16:55:32.778 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 16:55:32.994 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 16:55:34.429 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 16:55:34.641 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
+[DEBUG] 2025-12-08 17:13:12.932 [main] GenericDao - Searching for Photo where imagePath LIKE %ians%
+[DEBUG] 2025-12-08 17:13:13.168 [main] GenericDao - Searching for Photo with imagePath = images/conrads_wrap.jpg
+[DEBUG] 2025-12-08 17:13:14.416 [main] GenericDao - Searching for Review where restaurantName LIKE %S%
+[DEBUG] 2025-12-08 17:13:14.628 [main] GenericDao - Searching for Review with restaurantName = Sushi Express
