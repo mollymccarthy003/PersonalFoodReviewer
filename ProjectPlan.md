@@ -52,19 +52,10 @@ Peer feedback incorporated
 - [x] SUBMIT CHECKPOINT 2
 ### User authentication complete
 ### moved to week 14
-- [ ] AWS Cognitio Implemented
-- [ ] Google Auth?
-- [ ] Daily Timelog
       
 ## Week 8 Consume a web service / Prepare for Indie Checkpoint 3
 ### Optional: restaurant metadata api? maps api?
 ### moved to week 14
-- [ ] Implement outside API 
-- [ ] Design DAO for external data
-- [ ] AWS Working Smoothly
-- [ ] JSP Displays DB Data
-- [ ] Authentication implemented
-- [ ] Daily Timelog
       
 ## Week 9 RESTful Web Services (start of team project)
 ### TEAM PROJECT Week
@@ -87,18 +78,22 @@ Peer feedback incorporated
 - [x] Create jsp for creating a review
 - [x] Creating jsp for displaying said review
 - [x] AWS Cognitio Implemented
-- [ ] Implement outside API (Weather api)
-- [ ] Design DAO for external data 
-- [ ] AWS Working Smoothly (s3 bucket for images?)not needed? ask paula
 - [x] JSP Displays DB Data
 - [x] Authentication implemented
-- [ ] JSP Integration
-- [ ] Functional search form THAT actually searches
-- [ ] Functional review form WITH PHOTOS
-- [ ] UI polishing (bootstrap?)
 
 ## Week 15 Work week
 ### MVP complete and fully deployed
+- [ ] Implement outside API (Weather api)
+- [ ] Design DAO for external data 
+- [ ] AWS Working Smoothly (s3 bucket for images?)not needed? ask paula
+- [ ] JSP Integration
+- [ ] UserDAO tests
+- [ ] Remove Java Code from JSPs
+- [ ] GITIGNORE!!!!!!!
+- [ ] Functional search form THAT actually searches
+- [ ] Functional review form WITH PHOTOS
+- [ ] - [ ] Remove debug logs
+- [ ] UI polishing / CSS work / Bootstrap
 - [ ] Final deployed app on AWS
 - [ ] Documentation Update/Finalized
 - [ ] Daily Timelog
