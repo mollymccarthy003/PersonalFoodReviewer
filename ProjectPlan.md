@@ -83,6 +83,8 @@ Peer feedback incorporated
 
 ## Week 15 Work week
 ### MVP complete and fully deployed
+- [ ] Fix search bar showing ALL results
+- [ ] Sign In show user top left
 - [ ] Implement outside API (Weather api)
 - [ ] Design DAO for external data 
 - [ ] AWS Working Smoothly (s3 bucket for images?)not needed? ask paula
