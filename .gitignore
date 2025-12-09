@@ -4,7 +4,7 @@
 # Covers IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
-# User-specific stuff
+# User specific
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/dictionaries
@@ -32,18 +32,75 @@
 # Plugin-specific files
 /out/
 
-# Maven
+# =====================
+# Maven Build Output
+# =====================
 /target/
 /log/
 /lib/
 
-# mpeltonen/sbt-idea plugin
-.idea_modules/
+# =====================
+# Logs
+# =====================
+logs/
+*.log
 
-# JIRA plugin
+# =====================
+# Sensitive Information
+# (NEVER commit these!!!!!!!!!!!!)
+# =====================
+# AWS credentials
+.aws/
+*.pem
+*.key
+
+# Cognito + local config files
+*.properties
+*.env
+
+# Hibernate local override
+hibernate.local.cfg.xml
+
+# Any file containing "secret" or "password"
+*secret*
+*password*
+
+# =====================
+# Java / Build Cleanup
+# =====================
+*.class
+*.war
+*.jar
+*.ser
+*.bak
+
+# =====================
+# OS-specific files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Node (if ever added for frontend)
+# =====================
+node_modules/
+
+# =====================
+# Eclipse / NetBeans (just in case)
+# =====================
+.settings/
+.project
+.classpath
+nbproject/
+
+# =====================
+# Misc
+# =====================
+*.iml
+.idea_modules/
 atlassian-ide-plugin.xml
 
-# Crashlytics plugin (Android Studio/IntelliJ)
+# Crashlytics plugin
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
