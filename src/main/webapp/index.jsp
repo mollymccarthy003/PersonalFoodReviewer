@@ -7,6 +7,7 @@
 
 <head>
     <title>Hungry Badger Food Reviewer</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <div class="container" style="padding:20px;">
@@ -26,7 +27,7 @@
     </p>
     <br>
     <p>
-        Not only is this a fun way to document your current favorites, but its also a way to look back
+        Not only is this a fun way to document your current favorites, but it is also a way to look back
         on your college experience and remember the meals that made it special.
     </p>
     <br>

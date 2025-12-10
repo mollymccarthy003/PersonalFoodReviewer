@@ -5,10 +5,10 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hungrybadger.auth.Keys;
+import org.hungrybadger.auth.TokenResponse;
 import org.hungrybadger.entity.User;
 import org.hungrybadger.persistence.GenericDao;
-import org.hungrybadger.auth.TokenResponse;
-import org.hungrybadger.auth.Keys;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

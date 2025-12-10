@@ -6,19 +6,19 @@ import org.hungrybadger.entity.Photo;
 import org.hungrybadger.entity.Review;
 import org.hungrybadger.entity.User;
 import org.hungrybadger.persistence.GenericDao;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import java.io.IOException;
-import java.util.List;
-import java.io.InputStream;
-import java.util.UUID;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/reviews")
 public class ReviewController extends HttpServlet {
@@ -92,7 +92,6 @@ public class ReviewController extends HttpServlet {
         request.setAttribute("reviews", reviews);
         request.getRequestDispatcher("/reviews.jsp").forward(request, response);
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

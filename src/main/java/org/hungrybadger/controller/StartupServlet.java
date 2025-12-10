@@ -10,26 +10,36 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * StartupServlet initializes application-wide resources when the web application starts.
+ * Specifically, it loads Cognito configuration properties for authentication.
+ */
 @WebListener
 public class StartupServlet implements ServletContextListener {
 
-    private final Logger logger = LogManager.getLogger(this.getClass());
+    private static final Logger logger = LogManager.getLogger(StartupServlet.class);
 
-    // Make properties globally accessible
-    public static Properties COGNITO_PROPERTIES = new Properties();
+    /**
+     * Properties object accessible globally across the application.
+     */
+    public static final Properties COGNITO_PROPERTIES = new Properties();
 
+    /**
+     * Called when the web application starts.
+     * Loads Cognito properties from environment variable (if set, I have not currently) or local resource as fallback.
+     */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         try {
-            // Try to load from environment variable first (Elastic Beanstalk)
+            // Optional: Load from environment variable (useful for cloud deployment)
             String envPath = System.getenv("COGNITO_PROPERTIES_PATH");
             InputStream input;
 
             if (envPath != null) {
-                logger.info("Loading Cognito properties from environment: " + envPath);
+                logger.info("Loading Cognito properties from environment variable: {}", envPath);
                 input = new FileInputStream(envPath);
             } else {
-                // Fallback to local file in src/main/resources
+                // Fallback: Load from local resource for development/testing
                 logger.info("Loading Cognito properties from local resources");
                 input = getClass().getClassLoader().getResourceAsStream("cognito.properties");
             }
@@ -48,6 +58,8 @@ public class StartupServlet implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        // nothing to clean up
+        // This method is called when the web application shuts down.
+        // Do not need to release any resources manually here,
+        // so it is intentionally left empty.
     }
 }

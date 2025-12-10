@@ -1,6 +1,7 @@
 package org.hungrybadger.entity;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity(name = "User")

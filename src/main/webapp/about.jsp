@@ -6,6 +6,7 @@
 </jsp:include>
 <head>
     <title>About Page</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="container">
