@@ -19,6 +19,8 @@
 
 <!-- Sidebar Navigation -->
 <nav class="sidebar" aria-label="Main Navigation">
+    <!-- Top items -->
+    <div class="sidebar-top">
     <ul>
         <li class="user-section">
             <c:choose>
@@ -53,6 +55,7 @@
                class="${page eq 'about' ? 'active' : ''}">About</a>
         </li>
     </ul>
+    </div>
 </nav>
 
 <!-- Main Content Wrapper -->

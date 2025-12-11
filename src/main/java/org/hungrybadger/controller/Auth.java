@@ -75,9 +75,9 @@ public class Auth extends HttpServlet {
 
         try {
             //Hardcoded prod redirect URI
-            // String redirectUri = "https://" + req.getServerName() + req.getContextPath() + "/auth";
+            String redirectUri = "https://" + req.getServerName() + req.getContextPath() + "/auth";
             // Hardcoded local dev redirect URI
-            String redirectUri = "http://localhost:8080/PersonalFoodReviewer/auth";
+            // String redirectUri = "http://localhost:8080/PersonalFoodReviewer/auth";
 
 
             logger.info("Redirect URI: {}", redirectUri);

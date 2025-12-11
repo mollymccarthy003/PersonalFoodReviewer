@@ -7,14 +7,22 @@ body {
 /* Sidebar */
 nav.sidebar {
     position: fixed;
-    left: 0; top:0;
+    left: 0; top: 0;
     width: 250px; height: 100vh;
-    background: #000000;
+    background: #000;
     padding-top: 20px;
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-nav.sidebar ul { list-style:none; padding:0; }
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 nav.sidebar li { padding:0; }
 nav.sidebar a {
     display:block; color:#ffffff; text-decoration:none;

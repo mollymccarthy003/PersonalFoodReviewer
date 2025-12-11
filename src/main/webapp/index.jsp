@@ -30,6 +30,12 @@
         on your college experience and remember the meals that made it special.
     </p>
     <br>
+    <c:if test="${not empty sessionScope.dadJoke}">
+        <div class="home-dad-joke">
+            <strong>Joke of the Day:</strong>
+            <p>${sessionScope.dadJoke}</p>
+        </div>
+    </c:if>
 </div>
 
 <jsp:include page="footer.jsp" />

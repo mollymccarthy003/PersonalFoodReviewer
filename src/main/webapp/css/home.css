@@ -10,6 +10,7 @@
     line-height: 1.6;
 }
 
+
 /* ===== Headings ===== */
 h1 {
     font-size: 32px;
@@ -38,6 +39,17 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.home-dad-joke {
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
 }
 
 /* ===== Responsive ===== */

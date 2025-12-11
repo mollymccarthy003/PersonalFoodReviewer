@@ -14,11 +14,16 @@ Logging: Log4J2
 
 Hosting: AWS
 
-Tech I'd like to explore: NodeJS, Bootstrap, Google Maps API, Hibernate Search
+Tech I'd like to explore: Bootstrap, Google Maps API, Hibernate Search
 
 Unit Testing: JUnit 
 
-IDE: IntelliJ IDEA/VSCODE
+IDE: IntelliJ IDEA
+
+External API used: [https://icanhazdadjoke.com/api](https://icanhazdadjoke.com/api) I was inspired by a classmate to choose something
+lighthearted to put on my website. I decided on dad jokes! I think this adds a great bit of whimsy to the site and makes it more casual.
+My user story targets UW area students and I think this little bit of humor is a nice way to keep it light. My original plan was to use
+my Team Project, Food Truck Restful API, but I had to pivot!
 
 Post MVP ideas: comment on review, top-rated restaurant lists, most visited restuarant
 
