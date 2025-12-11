@@ -83,18 +83,18 @@ Peer feedback incorporated
 
 ## Week 15 Work week
 ### MVP complete and fully deployed
+- [x] UserDAO tests
+- [x] Remove Java Code from JSPs
+- [x] GITIGNORE!!!!!!!
+- [x] Remove debug logs
 - [ ] Fix search bar showing ALL results
 - [ ] Sign In show user top left
 - [ ] Implement outside API (Weather api)
 - [ ] Design DAO for external data 
 - [ ] AWS Working Smoothly (s3 bucket for images?)not needed? ask paula
 - [ ] JSP Integration
-- [ ] UserDAO tests
-- [ ] Remove Java Code from JSPs
-- [ ] GITIGNORE!!!!!!!
 - [ ] Functional search form THAT actually searches
 - [ ] Functional review form WITH PHOTOS
-- [ ] - [ ] Remove debug logs
 - [ ] UI polishing / CSS work / Bootstrap
 - [ ] Final deployed app on AWS
 - [ ] Documentation Update/Finalized
