@@ -1,0 +1,113 @@
+/* ===== Container ===== */
+.container-fluid {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Headings ===== */
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+    background: linear-gradient(135deg, #a50000 0%, #d32f2f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* ===== Add Review Button ===== */
+.btn-primary, .btn-warning, .btn-danger, .btn-secondary {
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.btn-primary { background-color: #a50000; border: 2px solid #a50000; color: #ffffff; }
+.btn-primary:hover { background-color: #d32f2f; border-color: #d32f2f; }
+
+.btn-warning { background-color: #ffa000; border: 2px solid #ffa000; color: #ffffff; }
+.btn-warning:hover { background-color: #ffb740; border-color: #ffb740; }
+
+.btn-danger { background-color: #d32f2f; border: 2px solid #d32f2f; color: #ffffff; }
+.btn-danger:hover { background-color: #ff4c4c; border-color: #ff4c4c; }
+
+.btn-secondary { background-color: #ffffff; border: 2px solid #000000; color: #000000; }
+.btn-secondary:hover { background-color: #f5f5f5; }
+
+/* ===== Reviews Table ===== */
+#reviewTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+#reviewTable th, #reviewTable td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+#reviewTable th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+#reviewTable tr:nth-child(even) { background-color: #fafafa; }
+#reviewTable tr:hover { background-color: rgba(213, 47, 47, 0.1); }
+
+#reviewTable a {
+    color: #a50000;
+    font-weight: 600;
+    text-decoration: none;
+}
+#reviewTable a:hover { text-decoration: underline; }
+
+/* ===== Individual Review Card ===== */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.card p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.card strong {
+    color: #000000;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    #reviewTable th, #reviewTable td {
+        padding: 8px 10px;
+    }
+
+    .btn-primary, .btn-warning, .btn-danger, .btn-secondary {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+}

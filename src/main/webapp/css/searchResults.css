@@ -1,0 +1,109 @@
+/* Container */
+.container-fluid {
+    padding: 20px;
+}
+
+/* Page heading */
+h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #d32f2f;
+}
+
+/* Card style for each review */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Review headings inside card */
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #a50000;
+}
+
+/* Review details */
+.card p {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Buttons inside card */
+.card .btn {
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #a50000;
+    border-color: #a50000;
+}
+
+.btn-primary:hover {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+}
+
+.btn-warning {
+    background-color: #ffa000;
+    border-color: #ffa000;
+}
+
+.btn-warning:hover {
+    background-color: #ffb74d;
+    border-color: #ffb74d;
+}
+
+.btn-danger {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+}
+
+.btn-danger:hover {
+    background-color: #ff5252;
+    border-color: #ff5252;
+}
+
+.btn-secondary {
+    background-color: #9e9e9e;
+    border-color: #9e9e9e;
+}
+
+.btn-secondary:hover {
+    background-color: #bdbdbd;
+    border-color: #bdbdbd;
+}
+
+/* Alert for no results */
+.alert {
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card h3 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+}

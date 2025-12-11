@@ -1,0 +1,57 @@
+/* ===== Container ===== */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* ===== Headings ===== */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+    background: linear-gradient(135deg, #a50000 0%, #d32f2f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== Paragraphs ===== */
+p {
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* ===== Links  ===== */
+a {
+    color: #a50000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}

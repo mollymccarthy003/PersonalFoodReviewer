@@ -7,7 +7,6 @@
 
 <head>
     <title>Hungry Badger Food Reviewer</title>
-    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <div class="container" style="padding:20px;">
@@ -23,7 +22,7 @@
     <p>
         Hungry Badger is a Personal Food Reviewer website designed for local Madison students.
         The site allows students to review restaurants quickly, see personal ratings, discover favorites,
-        or document bad experiences. All your ratings of businesses are private and personal—like a diary but for food!
+        or document bad experiences. All your ratings of businesses are private and personal, like a diary but for food!
     </p>
     <br>
     <p>

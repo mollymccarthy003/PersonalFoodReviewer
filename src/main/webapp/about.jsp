@@ -20,7 +20,7 @@
     </p>
 
     <p>
-        Hungry Badger was born from that idea—a personal food reviewer for students, by a student, for my
+        Hungry Badger was born from this idea, a personal food reviewer for students, by a student, for my
         Enterprise Java class in Fall 2025. My goal is to provide a simple, fun, and private way for students to document their favorite eats,
         discover new spots, and even record the occasional disappointing meal.
     </p>

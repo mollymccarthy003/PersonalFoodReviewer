@@ -7,29 +7,29 @@
 <body>
 <div class="container-fluid">
     <h2>My Reviews</h2>
-    <a href="reviewForm.jsp?action=add" class="btn btn-primary mb-3">Add New Review</a>
-
-    <table id="reviewTable" class="display table table-striped table-bordered">
-        <thead>
-        <tr>
-            <th>Restaurant Name</th>
-            <th>Cuisine</th>
-            <th>Personal Rating</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="review" items="${reviews}">
+        <a href="reviewForm.jsp?action=add" class="btn btn-primary mb-3">Add New Review</a>
+        <br><br>
+        <table id="reviewTable" class="display table table-striped table-bordered">
+            <thead>
             <tr>
-                <td>
-                    <!-- Link to single review page -->
-                    <a href="reviews?id=${review.id}">${review.restaurantName}</a>
-                </td>
-                <td>${review.cuisineType}</td>
-                <td>${review.personalRating}</td>
+                <th>Restaurant Name</th>
+                <th>Cuisine</th>
+                <th>Personal Rating</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <c:forEach var="review" items="${reviews}">
+                <tr>
+                    <td>
+                        <!-- Link to single review page -->
+                        <a href="reviews?id=${review.id}">${review.restaurantName}</a>
+                    </td>
+                    <td>${review.cuisineType}</td>
+                    <td>${review.personalRating}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
 </div>
 
 <script type="text/javascript" class="init">

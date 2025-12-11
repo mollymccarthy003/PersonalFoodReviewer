@@ -3,9 +3,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><c:out value="${pageTitle != null ? pageTitle : 'Hungry Badger Food Reviewer'}"/></title>
-    <link rel="stylesheet" href="css/main.css">
+    <title><c:out value="${param.pageTitle}"/></title>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <!-- Review form CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reviewForm.css">
+    <!-- Reviews List CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reviews.css">
+    <!-- Index/homepage CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
+    <!-- Search Results CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/searchResults.css">
 </head>
 <body>
 
@@ -55,7 +63,7 @@
         </div>
         <div class="search-section">
             <form action="searchReview" method="get">
-                <input type="text" name="query" class="search-bar" placeholder="Search reviews...">
+                <input type="text" name="searchTerm" class="search-bar" placeholder="Search reviews...">
             </form>
         </div>
     </div>

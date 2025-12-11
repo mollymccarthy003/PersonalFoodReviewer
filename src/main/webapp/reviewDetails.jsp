@@ -29,6 +29,7 @@
 
     <br><br>
     <a href="reviews" class="btn btn-secondary">Back to My Reviews</a>
+    <a href="addPhoto.jsp?reviewId=${review.id}" class="btn btn-primary">Add Photo</a>
 </div>
 <jsp:include page="footer.jsp"/>
 </body>
