@@ -74,8 +74,9 @@ public class Auth extends HttpServlet {
         }
 
         try {
-            String scheme = req.getHeader("X-Forwarded-Proto") != null ? req.getHeader("X-Forwarded-Proto") : req.getScheme();
-            String redirectUri = "https://" + req.getServerName() + req.getContextPath() + "/auth";
+            //String redirectUri = "https://" + req.getServerName() + req.getContextPath() + "/auth";
+            // Hardcoded local dev redirect URI
+            String redirectUri = "http://localhost:8080/PersonalFoodReviewer/auth";
 
 
             logger.info("Redirect URI: {}", redirectUri);

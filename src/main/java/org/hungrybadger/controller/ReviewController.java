@@ -25,9 +25,11 @@ public class ReviewController extends HttpServlet {
 
     private GenericDao<Review> reviewDao;
     private GenericDao<Photo> photoDao;
+
     private static final Logger logger = LogManager.getLogger(ReviewController.class);
+
     private S3Client s3Client;
-    private String bucketName = "hungrybadgerimages";
+    private final String bucketName = "hungrybadgerimages";
 
     @Override
     public void init() {
@@ -35,7 +37,7 @@ public class ReviewController extends HttpServlet {
         photoDao = new GenericDao<>(Photo.class);
 
         s3Client = S3Client.builder()
-                .region(Region.US_EAST_2) // change to your region
+                .region(Region.US_EAST_2)
                 .credentialsProvider(StaticCredentialsProvider.create(
                         AwsBasicCredentials.create("YOUR_ACCESS_KEY", "YOUR_SECRET_KEY")))
                 .build();
@@ -48,15 +50,18 @@ public class ReviewController extends HttpServlet {
         logger.info("GET /reviews");
 
         User user = getLoggedInUser(request, response);
-        if (user == null) {
-            // User not logged in, redirect to login page
-            response.sendRedirect(request.getContextPath() + "/auth");
-            return;
-        }
+        if (user == null) return;
 
         String idParam = request.getParameter("id");
         String actionParam = request.getParameter("action");
 
+        // Default action for form
+        if (actionParam == null || actionParam.isEmpty()) {
+            actionParam = "add";
+        }
+        request.setAttribute("action", actionParam);
+
+        // If a specific review is requested
         if (idParam != null) {
             try {
                 int reviewId = Integer.parseInt(idParam);
@@ -84,11 +89,10 @@ public class ReviewController extends HttpServlet {
             }
         }
 
-        // List all reviews for the logged-in user
+        // No ID → list all reviews for user
         List<Review> reviews = reviewDao.getByPropertyEqual("user", user);
-        if (reviews == null) {
-            reviews = List.of(); // Avoid null pointer in JSP
-        }
+        if (reviews == null) reviews = List.of();
+
         request.setAttribute("reviews", reviews);
         request.getRequestDispatcher("/reviews.jsp").forward(request, response);
     }
@@ -127,6 +131,9 @@ public class ReviewController extends HttpServlet {
         }
     }
 
+    /**
+     * Returns the logged-in user or redirects to /auth if not logged in.
+     */
     private User getLoggedInUser(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
@@ -153,42 +160,25 @@ public class ReviewController extends HttpServlet {
     private void addReview(HttpServletRequest request, User user) {
         Review review = new Review();
 
-        // Get restaurant name safely
         String restaurantName = request.getParameter("restaurantName");
         review.setRestaurantName(restaurantName != null ? restaurantName.trim() : "");
 
-        // Get cuisine type safely
         String cuisineType = request.getParameter("cuisineType");
         review.setCuisineType(cuisineType != null ? cuisineType.trim() : "");
 
-        // Parse personal rating safely
-        int rating = 1; // default rating
         String ratingParam = request.getParameter("personalRating");
-        if (ratingParam != null && !ratingParam.isEmpty()) {
-            try {
-                rating = Integer.parseInt(ratingParam);
-                if (rating < 1) rating = 1;
-                if (rating > 5) rating = 5;
-            } catch (NumberFormatException e) {
-                logger.warn("Invalid personalRating '{}', defaulting to 1", ratingParam);
-                rating = 1;
-            }
-        }
+        int rating = parseRating(ratingParam);
         review.setPersonalRating(rating);
 
-        // Get personal notes safely
         String notes = request.getParameter("personalNotes");
         review.setPersonalNotes(notes != null ? notes.trim() : "");
 
-        // Set the logged-in user
         review.setUser(user);
 
-        // Insert review into DB
         reviewDao.insert(review);
 
         logger.info("Added new review '{}' by user {}", review.getRestaurantName(), user.getEmail());
     }
-
 
     private void updateReview(HttpServletRequest request, int id, User user) {
         Review review = reviewDao.getById(id);
@@ -196,7 +186,10 @@ public class ReviewController extends HttpServlet {
 
         review.setRestaurantName(request.getParameter("restaurantName"));
         review.setCuisineType(request.getParameter("cuisineType"));
-        review.setPersonalRating(Integer.parseInt(request.getParameter("personalRating")));
+
+        String ratingParam = request.getParameter("personalRating");
+        review.setPersonalRating(parseRating(ratingParam));
+
         review.setPersonalNotes(request.getParameter("personalNotes"));
 
         reviewDao.update(review);
@@ -207,5 +200,17 @@ public class ReviewController extends HttpServlet {
         if (review == null || review.getUser() == null || review.getUser().getId() != user.getId()) return;
 
         reviewDao.delete(review);
+    }
+
+    private int parseRating(String ratingParam) {
+        try {
+            int rating = Integer.parseInt(ratingParam);
+            if (rating < 1) return 1;
+            if (rating > 5) return 5;
+            return rating;
+        } catch (Exception e) {
+            logger.warn("Invalid rating '{}', defaulting to 1", ratingParam);
+            return 1;
+        }
     }
 }
