@@ -87,15 +87,16 @@ Peer feedback incorporated
 - [x] Remove Java Code from JSPs
 - [x] GITIGNORE!!!!!!!
 - [x] Remove debug logs
-- [ ] Fix search bar showing ALL results
-- [ ] Sign In show user top left
-- [ ] Implement outside API (Weather api)
+- [x] Fix search bar showing ALL results
+- [x] UI polishing / CSS work / Bootstrap
+- [x] JSP Integration
+- [x] Functional search form THAT actually searches
+- [x] Sign In show user top left
+- [ ] Implement outside API (Dad joke api)
 - [ ] Design DAO for external data 
 - [ ] AWS Working Smoothly (s3 bucket for images?)not needed? ask paula
-- [ ] JSP Integration
-- [ ] Functional search form THAT actually searches
-- [ ] Functional review form WITH PHOTOS
-- [ ] UI polishing / CSS work / Bootstrap
+- [ ] Functional review with ability to add PHOTOS
+- [ ] Javadoc/code cleanup
 - [ ] Final deployed app on AWS
 - [ ] Documentation Update/Finalized
 - [ ] Daily Timelog

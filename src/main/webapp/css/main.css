@@ -50,3 +50,12 @@ nav.sidebar a.active { background-color: #d32f2f; border-left-color:#ffffff; }
     transition: all 0.3s ease; outline:none;
 }
 .search-bar:focus { border-color:#a50000; box-shadow:0 0 0 3px rgba(213,47,47,0.1); }
+
+/* Target h3 inside the sidebar nav, or the welcome-message class */
+.sidebar .welcome-message,
+.top-header .welcome-message {
+    color: #ffffff !important;  /* Force it to white */
+    font-size: 1.1em;
+    margin: 0;
+    padding: 10px;
+}

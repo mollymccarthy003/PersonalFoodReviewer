@@ -20,16 +20,17 @@
 <!-- Sidebar Navigation -->
 <nav class="sidebar" aria-label="Main Navigation">
     <ul>
-        <li>
+        <li class="user-section">
             <c:choose>
-                <c:when test="${empty sessionScope.userName}">
+                <c:when test="${empty sessionScope.user}">
                     <a href="${pageContext.request.contextPath}/logIn"
                        class="${page eq 'login' ? 'active' : ''}">
                         Sign In / Sign Up
                     </a>
                 </c:when>
+
                 <c:otherwise>
-                    <h3 class="welcome-message">Welcome ${sessionScope.userName}</h3>
+                    <h3 class="welcome-message" style="color: white;">Welcome ${sessionScope.user.fullName}!</h3>
                 </c:otherwise>
             </c:choose>
         </li>
