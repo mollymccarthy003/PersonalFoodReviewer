@@ -35,44 +35,53 @@ public class SearchReview extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        // Get logged-in user from session
         HttpSession session = req.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
-            // redirect to login page if not logged in
+            logger.warn("User not logged in. Redirecting to /auth");
             resp.sendRedirect(req.getContextPath() + "/auth");
             return;
         }
 
         User user = (User) session.getAttribute("user");
 
+        // Get search term from form
         String searchTerm = req.getParameter("searchTerm");
-        String submit = req.getParameter("submit"); // "search" button
+        logger.info("User {} ({}) searching for term: '{}'", user.getFullName(), user.getEmail(), searchTerm);
 
-        logger.debug("submit param: {}", submit);
-        logger.debug("search term: {}", searchTerm);
+        List<Review> results = new ArrayList<>();
 
-        List<Review> results;
-
-        if ("search".equals(submit) && searchTerm != null && !searchTerm.trim().isEmpty()) {
-            // Search by restaurantName or cuisineType for this user
+        if (searchTerm != null && !searchTerm.trim().isEmpty()) {
+            // Fetch reviews by restaurantName or cuisineType
             List<Review> byRestaurant = reviewDao.getByPropertyLike("restaurantName", searchTerm);
             List<Review> byCuisine = reviewDao.getByPropertyLike("cuisineType", searchTerm);
 
-            // Combine results
-            results = new ArrayList<>();
+            logger.debug("Found {} reviews matching restaurant name", byRestaurant.size());
+            logger.debug("Found {} reviews matching cuisine type", byCuisine.size());
+
+            // Filter by logged-in user
             for (Review r : byRestaurant) {
-                if (r.getUser().getId() == user.getId()) results.add(r);
+                if (r.getUser() != null && r.getUser().getId() == user.getId()) {
+                    results.add(r);
+                    logger.debug("Adding restaurant match: {} (ID {})", r.getRestaurantName(), r.getId());
+                }
             }
             for (Review r : byCuisine) {
-                if (r.getUser().getId() == user.getId() && !results.contains(r)) results.add(r);
+                if (r.getUser() != null && r.getUser().getId() == user.getId() && !results.contains(r)) {
+                    results.add(r);
+                    logger.debug("Adding cuisine match: {} (ID {})", r.getRestaurantName(), r.getId());
+                }
             }
         } else {
-            // default = only show this user's reviews
+            // No search term: show only this user's reviews
             results = reviewDao.getByPropertyEqual("user", user);
+            logger.debug("No search term provided. Returning {} reviews for user.", results.size());
         }
 
+        logger.info("Total search results for user {}: {}", user.getFullName(), results.size());
         req.setAttribute("reviews", results);
-        req.getRequestDispatcher("/searchResults.jsp").forward(req, resp);
-    }
 
+        // Forward to JSP
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/searchResults.jsp");
+        dispatcher.forward(req, resp);
+    }
 }
