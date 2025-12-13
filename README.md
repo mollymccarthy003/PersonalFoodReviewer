@@ -27,6 +27,9 @@ my Team Project, Food Truck Restful API, but I had to pivot!
 
 Post MVP ideas: comment on review, top-rated restaurant lists, most visited restuarant
 
+Notes:For local development, uploaded images are stored in a local directory.
+In production, Elastic Beanstalk stores uploads in /var/app/current/uploads, created via .ebextensions.
+A utility class switches paths automatically, and images are served through a servlet for consistency.
 ### Design:
 
 [Screen Designs](DesignDocuments/Screens.md)

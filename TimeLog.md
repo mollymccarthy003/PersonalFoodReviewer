@@ -25,3 +25,4 @@
 |12/9| Cleaned repo, added gitignore, 2nd code review                                                         | 2     |                                                                                                                                                                    |
 |12/10| Worked on checkpoint 3 comments and css styling | 3 |  |
 |12/11| Css, search fixed, name in sidebar once logged in, added external dad joke api | 7 | This was such a good day and I'm so proud of how this site is turning out! |
+|12/13| Photos is working on local and production!! | 5 | So excited |

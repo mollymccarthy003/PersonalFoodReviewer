@@ -6,17 +6,11 @@ import org.hungrybadger.entity.Photo;
 import org.hungrybadger.entity.Review;
 import org.hungrybadger.entity.User;
 import org.hungrybadger.persistence.GenericDao;
-import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
-import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.s3.S3Client;
+import org.hungrybadger.persistence.PhotoDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -24,21 +18,13 @@ import java.util.List;
 public class ReviewController extends HttpServlet {
 
     private GenericDao<Review> reviewDao;
-    private GenericDao<Photo> photoDao;
+    private PhotoDao photoDao;
     private static final Logger logger = LogManager.getLogger(ReviewController.class);
-    private S3Client s3Client;
-    private String bucketName = "hungrybadgerimages";
 
     @Override
     public void init() {
         reviewDao = new GenericDao<>(Review.class);
-        photoDao = new GenericDao<>(Photo.class);
-
-        s3Client = S3Client.builder()
-                .region(Region.US_EAST_2) // change to your region
-                .credentialsProvider(StaticCredentialsProvider.create(
-                        AwsBasicCredentials.create("YOUR_ACCESS_KEY", "YOUR_SECRET_KEY")))
-                .build();
+        photoDao = new PhotoDao();
     }
 
     @Override
@@ -48,7 +34,7 @@ public class ReviewController extends HttpServlet {
         logger.info("GET /reviews");
 
         User user = getLoggedInUser(request, response);
-        if (user == null) return;  // do not call sendRedirect again
+        if (user == null) return;
 
         String idParam = request.getParameter("id");
         String actionParam = request.getParameter("action");
@@ -65,6 +51,10 @@ public class ReviewController extends HttpServlet {
                 }
 
                 request.setAttribute("review", review);
+
+                // Load photos for this review
+                List<Photo> photos = photoDao.getByReview(reviewId);
+                request.setAttribute("photos", photos);
 
                 if ("edit".equals(actionParam)) {
                     request.getRequestDispatcher("/reviewForm.jsp").forward(request, response);
@@ -127,7 +117,6 @@ public class ReviewController extends HttpServlet {
             throws IOException {
 
         HttpSession session = request.getSession(false);
-
         if (session == null) {
             logger.warn("No session found, redirecting to /auth");
             response.sendRedirect(request.getContextPath() + "/auth");
@@ -135,7 +124,6 @@ public class ReviewController extends HttpServlet {
         }
 
         User user = (User) session.getAttribute("user");
-
         if (user == null) {
             logger.warn("No user object in session, redirecting to /auth");
             response.sendRedirect(request.getContextPath() + "/auth");
@@ -148,17 +136,12 @@ public class ReviewController extends HttpServlet {
 
     private void addReview(HttpServletRequest request, User user) {
         Review review = new Review();
-
-        // Get restaurant name safely
         String restaurantName = request.getParameter("restaurantName");
         review.setRestaurantName(restaurantName != null ? restaurantName.trim() : "");
-
-        // Get cuisine type safely
         String cuisineType = request.getParameter("cuisineType");
         review.setCuisineType(cuisineType != null ? cuisineType.trim() : "");
 
-        // Parse personal rating safely
-        int rating = 1; // default rating
+        int rating = 1;
         String ratingParam = request.getParameter("personalRating");
         if (ratingParam != null && !ratingParam.isEmpty()) {
             try {
@@ -172,19 +155,13 @@ public class ReviewController extends HttpServlet {
         }
         review.setPersonalRating(rating);
 
-        // Get personal notes safely
         String notes = request.getParameter("personalNotes");
         review.setPersonalNotes(notes != null ? notes.trim() : "");
-
-        // Set the logged-in user
         review.setUser(user);
 
-        // Insert review into DB
         reviewDao.insert(review);
-
         logger.info("Added new review '{}' by user {}", review.getRestaurantName(), user.getEmail());
     }
-
 
     private void updateReview(HttpServletRequest request, int id, User user) {
         Review review = reviewDao.getById(id);

@@ -156,9 +156,16 @@ public class GenericDao<T> {
     }
 
     /**
+     * Get entities by property (exact match).
+     */
+    public List<T> getByProperty(String propertyName, Object value) {
+        return getByPropertyEqual(propertyName, value);
+    }
+
+    /**
      * Helper method to get a new Hibernate session.
      */
-    private Session getSession() {
+    protected Session getSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }
 }

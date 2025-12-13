@@ -14,6 +14,23 @@
         <p><strong>Personal Rating:</strong> ${review.personalRating} / 5</p>
         <p><strong>Notes:</strong></p>
         <p>${review.personalNotes}</p>
+        <br>
+        <c:if test="${not empty photos}">
+            <div class="review-photos" style="margin-top:20px;">
+                <h4>Photos</h4>
+                <c:forEach var="photo" items="${photos}">
+                    <div style="display:inline-block; position:relative; margin:10px;">
+                        <img src="${pageContext.request.contextPath}/uploads/${photo.imagePath}"
+                             alt="Review Photo" style="max-width:200px; margin:10px;" />
+                        <form action="deletePhoto" method="post" style="position:absolute; top:0; right:0;">
+                            <input type="hidden" name="photoId" value="${photo.id}" />
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Delete this photo?');">X</button>
+                        </form>
+                    </div>
+                </c:forEach>
+            </div>
+        </c:if>
     </div>
 
     <a href="reviews?id=${review.id}&action=edit" class="btn btn-warning">Edit</a>
@@ -29,7 +46,12 @@
 
     <br><br>
     <a href="reviews" class="btn btn-secondary">Back to My Reviews</a>
-    <a href="addPhoto.jsp?reviewId=${review.id}" class="btn btn-primary">Add Photo</a>
+    <a href="addPhoto.jsp?reviewId=${review.id}" class="btn btn-primary">
+        Add Photo
+    </a>
+
+
+
 </div>
 <jsp:include page="footer.jsp"/>
 </body>

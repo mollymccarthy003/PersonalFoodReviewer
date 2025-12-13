@@ -92,12 +92,17 @@ Peer feedback incorporated
 - [x] JSP Integration
 - [x] Functional search form THAT actually searches
 - [x] Sign In show user top left
-- [ ] Implement outside API (Dad joke api)
-- [ ] Design DAO for external data 
-- [ ] AWS Working Smoothly (s3 bucket for images?)not needed? ask paula
-- [ ] Functional review with ability to add PHOTOS
-- [ ] Javadoc/code cleanup
+- [x] Implement outside API (Dad joke api)
+- [x] Design DAO for external data 
+- [x] AWS Working Smoothly (storing images on EB)
+- [x] Functional review with ability to add PHOTOS
+- [ ] Add clear user-facing feedback (success/error) to form submissions.
+- [ ] Make photo delete button smaller
+- [ ] Add Javadocs/Coding Best Practices
+- [ ] Standardize Jakarta/Javax imports (choose javax for class consistency) 
 - [ ] Final deployed app on AWS
+- [ ] Changelogs.md with information about feedback/test code coverage
+- [ ] Final Website Link on README
 - [ ] Documentation Update/Finalized
 - [ ] Daily Timelog
 
