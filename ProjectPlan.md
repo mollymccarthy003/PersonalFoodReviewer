@@ -100,12 +100,12 @@ Peer feedback incorporated
 - [x] Final AWS deployment (test everything)
 - [x] Standardize javax imports
 - [x] Add user-facing success and error feedback for actions (e.g., photo delete, review form submissions)
-- [ ] Javadocs / code cleanup
+- [x] Javadocs / code cleanup
 
 - [ ] Documentation final pass
 - [ ] Changelog.md
 - [ ] Add final AWS link to README
-- [ ] Daily Timelog
+- [x] Daily Timelog
 
 ## Week 16 Individual Project Presentations
 ### Showcase MVP + extra features (DUE 12/17)
