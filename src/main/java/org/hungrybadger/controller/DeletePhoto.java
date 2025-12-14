@@ -13,18 +13,52 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Servlet responsible for deleting a photo associated with a review.
+ * <p>
+ * This servlet handles HTTP POST requests to delete a photo both from the file system
+ * and from the database. It expects a request parameter "photoId" identifying the photo
+ * to delete. On success or failure, it sets an appropriate message in the session
+ * and redirects back to the review details page.
+ * </p>
+ */
 @WebServlet("/deletePhoto")
 public class DeletePhoto extends HttpServlet {
 
+    /** Logger for logging servlet events and errors */
     private static final Logger logger = LogManager.getLogger(DeletePhoto.class);
+
+    /** DAO used to access and manipulate Photo entities */
     private PhotoDao photoDao;
 
+    /**
+     * Initializes the servlet and sets up the {@link PhotoDao}.
+     * Logs initialization for debugging purposes.
+     */
     @Override
     public void init() {
         photoDao = new PhotoDao();
         logger.info("PhotoDeleteServlet initialized.");
     }
 
+    /**
+     * Handles HTTP POST requests to delete a photo.
+     * <p>
+     * The method:
+     * <ol>
+     *     <li>Validates and parses the "photoId" request parameter.</li>
+     *     <li>Retrieves the corresponding {@link Photo} entity from the database.</li>
+     *     <li>Deletes the photo file from the server disk if it exists.</li>
+     *     <li>Deletes the photo entity from the database.</li>
+     *     <li>Sets success or error messages in the HTTP session.</li>
+     *     <li>Redirects the user back to the review details page.</li>
+     * </ol>
+     *
+     * @param req  The {@link HttpServletRequest} object that contains the request made by the client.
+     * @param resp The {@link HttpServletResponse} object used to return the response to the client.
+     * @throws ServletException If an error occurs during request handling.
+     * @throws IOException      If an I/O error occurs while sending the redirect or accessing the file.
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int photoId;

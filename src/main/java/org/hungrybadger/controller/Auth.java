@@ -33,19 +33,44 @@ import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
+/**
+ * Servlet for handling authentication with AWS Cognito.
+ * <p>
+ * Supports OAuth2 login flow, retrieves Cognito tokens, and manages user sessions.
+ * </p>
+ */
 @WebServlet("/auth")
 public class Auth extends HttpServlet {
 
+    /** Logger for this servlet. */
     private final Logger logger = LogManager.getLogger(this.getClass());
+
+    /** DAO for accessing User entities in the database. */
     private GenericDao<User> userDao = new GenericDao<>(User.class);
+
+    /** Holds Cognito JSON Web Keys (JWKs) for token verification. */
     private Keys jwks;
 
+    /** Cognito client ID. */
     private String clientId;
+
+    /** Cognito client secret. */
     private String clientSecret;
+
+    /** OAuth URL for Cognito. */
     private String oauthUrl;
+
+    /** AWS region of the Cognito user pool. */
     private String region;
+
+    /** Cognito user pool ID. */
     private String poolId;
 
+    /**
+     * Initializes the servlet, loads properties and JWKS keys.
+     *
+     * @throws ServletException if an initialization error occurs
+     */
     @Override
     public void init() throws ServletException {
         super.init();
@@ -53,6 +78,9 @@ public class Auth extends HttpServlet {
         loadKeys();
     }
 
+    /**
+     * Loads Cognito configuration properties from the StartupServlet.
+     */
     private void loadProperties() {
         Properties props = StartupServlet.COGNITO_PROPERTIES;
         clientId = props.getProperty("client.id");
@@ -62,6 +90,14 @@ public class Auth extends HttpServlet {
         poolId = props.getProperty("poolId");
     }
 
+    /**
+     * Handles GET requests for the OAuth2 login flow.
+     *
+     * @param req  the HTTP request
+     * @param resp the HTTP response
+     * @throws ServletException if a servlet error occurs
+     * @throws IOException      if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
@@ -114,6 +150,13 @@ public class Auth extends HttpServlet {
     }
 
 
+    /**
+     * Builds an HTTP POST request to obtain an OAuth token using the authorization code flow.
+     *
+     * @param code The authorization code received from the OAuth provider after user login.
+     * @param redirectUri The redirect URI registered with the OAuth provider.
+     * @return An {@link HttpRequest} configured with form parameters and Basic Authentication header.
+     */
     private HttpRequest buildAuthRequest(String code, String redirectUri) {
         String keys = clientId + ":" + clientSecret;
         HashMap<String, String> params = new HashMap<>();
@@ -137,6 +180,14 @@ public class Auth extends HttpServlet {
                 .build();
     }
 
+    /**
+     * Sends an HTTP request to the OAuth provider and parses the response into a {@link TokenResponse}.
+     *
+     * @param request The {@link HttpRequest} object containing the OAuth token request.
+     * @return A {@link TokenResponse} object representing the parsed response.
+     * @throws IOException If an I/O error occurs when sending or receiving the request.
+     * @throws InterruptedException If the operation is interrupted while waiting for the response.
+     */
     private TokenResponse getToken(HttpRequest request) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -144,6 +195,10 @@ public class Auth extends HttpServlet {
         return mapper.readValue(response.body(), TokenResponse.class);
     }
 
+    /**
+     * Loads the JSON Web Key Set (JWKS) from the Cognito endpoint for the configured user pool.
+     * The JWKS is used later for validating JWT tokens.
+     */
     private void loadKeys() {
         try {
             String jwksUrl = String.format("https://cognito-idp.%s.amazonaws.com/%s/.well-known/jwks.json", region, poolId);
@@ -154,6 +209,14 @@ public class Auth extends HttpServlet {
         }
     }
 
+    /**
+     * Validates a JWT ID token using the first key from the loaded JWKS.
+     * Ensures the token is issued by the correct Cognito user pool and has the expected claims.
+     *
+     * @param tokenResponse The {@link TokenResponse} containing the ID token to validate.
+     * @return A {@link DecodedJWT} representing the verified and decoded token.
+     * @throws Exception If an error occurs while constructing the public key or verifying the token.
+     */
     private DecodedJWT validate(TokenResponse tokenResponse) throws Exception {
         RSAPublicKey publicKey = (RSAPublicKey) KeyFactory.getInstance("RSA")
                 .generatePublic(new RSAPublicKeySpec(

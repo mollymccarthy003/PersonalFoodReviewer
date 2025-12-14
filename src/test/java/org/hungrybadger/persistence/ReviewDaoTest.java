@@ -10,10 +10,33 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for {@link GenericDao} operations on {@link Review} entities.
+ * <p>
+ * This test class uses JUnit 5 to verify CRUD functionality and query methods:
+ * <ul>
+ *     <li>Retrieve a review by ID</li>
+ *     <li>Retrieve all reviews</li>
+ *     <li>Query reviews by property equality</li>
+ *     <li>Query reviews by property pattern (LIKE)</li>
+ *     <li>Insert new reviews</li>
+ *     <li>Update existing reviews</li>
+ *     <li>Delete reviews</li>
+ * </ul>
+ * Each test resets the database to a known state using {@link Database#runSQL(String)}.
+ * </p>
+ */
 class ReviewDaoTest {
 
+
+    /**
+     * GenericDao instance used for Review entity operations.
+     */
     GenericDao<Review> genericDao;
 
+    /**
+     * Runs before each test to reset the database and initialize the DAO.
+     */
     @BeforeEach
     void setUp() {
         // Reset the database before each test
@@ -24,6 +47,10 @@ class ReviewDaoTest {
         genericDao = new GenericDao<>(Review.class);
     }
 
+    /**
+     * Tests retrieving a review by a valid ID.
+     * Asserts that the returned review has the expected restaurant name.
+     */
     @Test
     void getByIdSuccess() {
         Review retrievedReview = genericDao.getById(1);
@@ -31,6 +58,10 @@ class ReviewDaoTest {
         assertEquals("Sushi Express", retrievedReview.getRestaurantName());
     }
 
+    /**
+     * Tests updating an existing review's restaurant name.
+     * Verifies that the change is persisted in the database.
+     */
     @Test
     void updateSuccess() {
         Review reviewToUpdate = genericDao.getById(1);
@@ -42,6 +73,11 @@ class ReviewDaoTest {
         assertEquals("Conrads Wraps", actualReview.getRestaurantName());
     }
 
+
+    /**
+     * Tests inserting a new review for an existing user.
+     * Validates that the review is correctly linked to the user and stored in the database.
+     */
     @Test
     void insertSuccess() {
         // Get an existing user from the database (assuming one exists in cleanDb.sql)
@@ -70,7 +106,10 @@ class ReviewDaoTest {
         assertEquals(existingUser.getId(), insertedReview.getUser().getId(), "Review should be linked to the correct user");
     }
 
-
+    /**
+     * Tests deleting a review by ID.
+     * Validates that the review no longer exists after deletion.
+     */
     @Test
     void deleteSuccess() {
         Review reviewToDelete = genericDao.getById(2);
@@ -80,12 +119,20 @@ class ReviewDaoTest {
         assertNull(genericDao.getById(2));
     }
 
+    /**
+     * Tests retrieving all reviews.
+     * Verifies that the number of reviews matches the expected count in the database.
+     */
     @Test
     void getAll() {
         List<Review> reviews = genericDao.getAll();
         assertEquals(3, reviews.size());
     }
 
+    /**
+     * Tests querying reviews by property equality (restaurant name).
+     * Validates that only the correct review is returned.
+     */
     @Test
     void getByPropertyEqual() {
         List<Review> reviews = genericDao.getByPropertyEqual("restaurantName", "Sushi Express");
@@ -93,6 +140,10 @@ class ReviewDaoTest {
         assertEquals(1, reviews.get(0).getId());
     }
 
+    /**
+     * Tests querying reviews by property pattern (LIKE) using restaurant name.
+     * Validates that all matching reviews are returned.
+     */
     @Test
     void getByPropertyLike() {
         List<Review> reviews = genericDao.getByPropertyLike("restaurantName", "S");

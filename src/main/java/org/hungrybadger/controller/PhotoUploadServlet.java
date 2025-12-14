@@ -18,23 +18,62 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
+/**
+ * Servlet responsible for handling photo uploads associated with reviews.
+ * <p>
+ * This servlet handles HTTP POST requests to "/uploadPhoto" and allows clients
+ * to upload image files. Uploaded files are saved to the server's file system
+ * and a corresponding {@link Photo} entity is created and associated with the
+ * specified {@link Review}.
+ * </p>
+ */
 @WebServlet("/uploadPhoto")
 @MultipartConfig
 public class PhotoUploadServlet extends HttpServlet {
 
+    /** Logger for logging servlet events and errors */
     private static final Logger logger = LogManager.getLogger(PhotoUploadServlet.class);
+
+    /** DAO used to access and manipulate Photo entities */
     private PhotoDao photoDao;
 
-    // Persistent folder outside target/webapp
-    private static final String UPLOAD_DIR = "/var/app/current/uploads"; // Production path
-    private static final String LOCAL_UPLOAD_DIR = "C:/PersonalFoodReviewerUploads"; // Local dev
+    /** Upload folder path in production environment */
+    private static final String UPLOAD_DIR = "/var/app/current/uploads";
 
+    /** Upload folder path in local development environment */
+    private static final String LOCAL_UPLOAD_DIR = "C:/PersonalFoodReviewerUploads";
+
+    /**
+     * Initializes the servlet and sets up the {@link PhotoDao}.
+     * Logs initialization for debugging purposes.
+     */
     @Override
     public void init() {
         photoDao = new PhotoDao();
         logger.info("PhotoUploadServlet initialized.");
     }
 
+    /**
+     * Handles HTTP POST requests to upload a photo for a review.
+     * <p>
+     * The method performs the following steps:
+     * <ol>
+     *     <li>Parses the "reviewId" request parameter.</li>
+     *     <li>Validates the uploaded file.</li>
+     *     <li>Generates a unique filename and determines the upload folder path based on environment.</li>
+     *     <li>Saves the uploaded file to the file system.</li>
+     *     <li>Loads the corresponding {@link Review} entity.</li>
+     *     <li>Creates a {@link Photo} entity, sets its review and image path, and inserts it into the database.</li>
+     *     <li>Redirects the client back to the review details page.</li>
+     * </ol>
+     * Appropriate error responses are sent if any step fails.
+     * </p>
+     *
+     * @param req  The {@link HttpServletRequest} object containing the request from the client.
+     * @param resp The {@link HttpServletResponse} object used to send the response to the client.
+     * @throws ServletException If an error occurs during request handling.
+     * @throws IOException      If an I/O error occurs while saving the file or sending the redirect.
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

@@ -13,35 +13,50 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * StartupServlet initializes application-wide resources when the web application starts.
- * Specifically, it loads Cognito configuration properties for authentication.
+ * {@code StartupServlet} is a {@link ServletContextListener} that initializes
+ * application-wide resources when the web application starts.
+ * <p>
+ * Specifically, it loads Cognito configuration properties used for authentication.
+ * The properties are loaded from an environment variable path if set, otherwise
+ * from a local resource file (for development/testing).
+ * </p>
+ * <p>
+ * The loaded properties are stored in the public static {@link #COGNITO_PROPERTIES} object,
+ * making them accessible throughout the application.
+ * </p>
  */
 @WebListener
 public class StartupServlet implements ServletContextListener {
 
+    /** Logger for logging startup events and errors */
     private static final Logger logger = LogManager.getLogger(StartupServlet.class);
 
-    /**
-     * Properties object accessible globally across the application.
-     */
+    /** Global properties object containing Cognito configuration */
     public static final Properties COGNITO_PROPERTIES = new Properties();
 
     /**
-     * Called when the web application starts.
-     * Loads Cognito properties from environment variable (if set, I have not currently) or local resource as fallback.
+     * Called when the web application is starting up.
+     * <p>
+     * Loads Cognito properties from either:
+     * <ul>
+     *     <li>An environment variable {@code COGNITO_PROPERTIES_PATH} if set (for cloud deployment)</li>
+     *     <li>A local resource file {@code cognito.properties} as a fallback (for local development)</li>
+     * </ul>
+     * Loaded properties are stored in {@link #COGNITO_PROPERTIES}.
+     *
+     * @param sce The {@link ServletContextEvent} representing the web application's context.
      */
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        try {
-            // Optional: Load from environment variable (useful for cloud deployment)
+        try { // Optional: Load from environment variable (useful for cloud deployment)
             String envPath = System.getenv("COGNITO_PROPERTIES_PATH");
             InputStream input;
 
             if (envPath != null) {
                 logger.info("Loading Cognito properties from environment variable: {}", envPath);
                 input = new FileInputStream(envPath);
-            } else {
-                // Fallback: Load from local resource for development/testing
+            } else { // Fallback: Load from local resource for development/testing
                 logger.info("Loading Cognito properties from local resources");
                 input = getClass().getClassLoader().getResourceAsStream("cognito.properties");
             }
@@ -58,10 +73,16 @@ public class StartupServlet implements ServletContextListener {
         }
     }
 
+    /**
+     * Called when the web application is shutting down.
+     * <p>
+     * No special cleanup is required for this servlet, so this method is intentionally left empty.
+     * </p>
+     *
+     * @param sce The {@link ServletContextEvent} representing the web application's context.
+     */
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        // This method is called when the web application shuts down.
-        // Do not need to release any resources manually here,
-        // so it is intentionally left empty.
+        // No cleanup needed
     }
 }

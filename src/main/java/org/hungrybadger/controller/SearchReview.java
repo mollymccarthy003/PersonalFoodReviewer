@@ -17,20 +17,54 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Servlet for searching {@link Review} entities for the currently logged-in user.
+ * <p>
+ * Handles HTTP GET requests to "/searchReview". Retrieves a search term from
+ * the request and filters reviews by restaurant name or cuisine type, ensuring
+ * that only reviews belonging to the logged-in user are returned.
+ * If no search term is provided, all reviews for the logged-in user are returned.
+ * The results are forwarded to {@code searchResults.jsp}.
+ * </p>
+ */
 @WebServlet(
         name = "searchReview",
         urlPatterns = {"/searchReview"}
 )
 public class SearchReview extends HttpServlet {
 
+    /** Logger for logging servlet events and errors */
     private final Logger logger = LogManager.getLogger(this.getClass());
+
+    /** DAO for managing Review entities */
     private GenericDao<Review> reviewDao;
 
+    /**
+     * Initializes the servlet and sets up the {@link GenericDao} for reviews.
+     */
     @Override
     public void init() {
         reviewDao = new GenericDao<>(Review.class);
     }
 
+    /**
+     * Handles HTTP GET requests to search reviews for the logged-in user.
+     * <p>
+     * The method performs the following steps:
+     * <ol>
+     *     <li>Verifies that a user is logged in; if not, redirects to "/auth".</li>
+     *     <li>Retrieves the search term from the request parameter "searchTerm".</li>
+     *     <li>Searches reviews by restaurant name and cuisine type using {@link GenericDao#getByPropertyLike(String, String)}.</li>
+     *     <li>Filters the search results to include only reviews belonging to the logged-in user.</li>
+     *     <li>If no search term is provided, returns all reviews for the logged-in user.</li>
+     *     <li>Forwards the results to {@code searchResults.jsp} as a request attribute "reviews".</li>
+     * </ol>
+     *
+     * @param req  The {@link HttpServletRequest} object containing the request from the client.
+     * @param resp The {@link HttpServletResponse} object used to send the response to the client.
+     * @throws ServletException If an error occurs during request forwarding.
+     * @throws IOException      If an I/O error occurs during redirect or forwarding.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
