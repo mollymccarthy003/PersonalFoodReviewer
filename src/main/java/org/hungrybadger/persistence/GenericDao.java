@@ -4,6 +4,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -13,7 +14,12 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 /**
- * A generic DAO for CRUD operations on any entity type.
+ * Generic DAO for CRUD operations.
+ *
+ * Note: I am using Jakarta Persistence (jakarta.persistence) instead of javax.persistence
+ * because of Hibernate 6 errors found late into development. Switching to javax would cause
+ * incompatibility issues with APIs like Session.getCriteriaBuilder(), which returns
+ * HibernateCriteriaBuilder in Hibernate 6. Keeping Jakarta ensures stability for this project
  *
  * @param <T> The entity type
  */

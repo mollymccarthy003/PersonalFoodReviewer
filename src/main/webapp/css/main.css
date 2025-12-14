@@ -67,3 +67,39 @@ nav.sidebar a.active { background-color: #d32f2f; border-left-color:#ffffff; }
     margin: 0;
     padding: 10px;
 }
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.5s forwards;
+    z-index: 1050;
+}
+
+/* Success & error colors */
+.toast-success {
+    background-color: #2d6a4f;
+}
+
+.toast-error {
+    background-color: #b00020;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

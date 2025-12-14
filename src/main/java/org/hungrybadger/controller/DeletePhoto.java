@@ -31,29 +31,41 @@ public class DeletePhoto extends HttpServlet {
         try {
             photoId = Integer.parseInt(req.getParameter("photoId"));
         } catch (NumberFormatException e) {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid photo ID");
+            req.getSession().setAttribute("errorMessage", "Invalid photo ID.");
+            resp.sendRedirect(req.getContextPath() + "/reviews");
             return;
         }
 
         Photo photo = photoDao.getById(photoId);
         if (photo == null) {
-            resp.sendError(HttpServletResponse.SC_NOT_FOUND, "Photo not found");
+            req.getSession().setAttribute("errorMessage", "Photo not found.");
+            resp.sendRedirect(req.getContextPath() + "/reviews");
             return;
         }
 
-        // 1. Delete the file from disk
-        String filePath = getServletContext().getRealPath("/" + photo.getImagePath());
-        File file = new File(filePath);
-        if (file.exists()) {
-            boolean deleted = file.delete();
-            logger.info("Deleted file {}: {}", filePath, deleted);
+        boolean fileDeleted = false;
+        try {
+            // Delete the file from disk
+            String filePath = getServletContext().getRealPath("/" + photo.getImagePath());
+            File file = new File(filePath);
+            if (file.exists()) {
+                fileDeleted = file.delete();
+                logger.info("Deleted file {}: {}", filePath, fileDeleted);
+            }
+
+            // Delete the Photo entity from DB
+            photoDao.delete(photo);
+            logger.info("Deleted photo entity with ID {}", photoId);
+
+            // Set success message
+            req.getSession().setAttribute("successMessage", "Photo deleted successfully!");
+
+        } catch (Exception e) {
+            logger.error("Error deleting photo ID {}", photoId, e);
+            req.getSession().setAttribute("errorMessage", "Failed to delete photo. Please try again.");
         }
 
-        // 2. Delete the Photo entity from DB
-        photoDao.delete(photo);
-        logger.info("Deleted photo entity with ID {}", photoId);
-
-        // 3. Redirect back to the review details page
+        // Redirect back to the review details page
         int reviewId = photo.getReview().getId();
         resp.sendRedirect(req.getContextPath() + "/reviews?id=" + reviewId);
     }

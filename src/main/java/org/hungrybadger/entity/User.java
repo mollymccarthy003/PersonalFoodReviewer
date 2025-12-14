@@ -1,5 +1,6 @@
 package org.hungrybadger.entity;
 
+// Using Jakarta Persistence (jakarta.persistence) for Hibernate 6 compatibility.
 import jakarta.persistence.*;
 
 import java.util.List;

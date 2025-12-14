@@ -96,14 +96,15 @@ Peer feedback incorporated
 - [x] Design DAO for external data 
 - [x] AWS Working Smoothly (storing images on EB)
 - [x] Functional review with ability to add PHOTOS
-- [ ] Add clear user-facing feedback (success/error) to form submissions.
-- [ ] Make photo delete button smaller
-- [ ] Add Javadocs/Coding Best Practices
-- [ ] Standardize Jakarta/Javax imports (choose javax for class consistency) 
-- [ ] Final deployed app on AWS
-- [ ] Changelogs.md with information about feedback/test code coverage
-- [ ] Final Website Link on README
-- [ ] Documentation Update/Finalized
+- [x] Shrink photo delete button and photos list looks good
+- [x] Final AWS deployment (test everything)
+- [x] Standardize javax imports
+- [x] Add user-facing success and error feedback for actions (e.g., photo delete, review form submissions)
+- [ ] Javadocs / code cleanup
+
+- [ ] Documentation final pass
+- [ ] Changelog.md
+- [ ] Add final AWS link to README
 - [ ] Daily Timelog
 
 ## Week 16 Individual Project Presentations

@@ -11,7 +11,11 @@
 <body>
 <div class="container">
     <h1>About Hungry Badger</h1>
-
+    <div class="about-photo" style="text-align:center; margin: 20px 0;">
+        <img src="${pageContext.request.contextPath}/images/mollymcc.png"
+             alt="About Me Photo"
+             style="max-width:300px; border-radius:10px; box-shadow: 0 0 10px rgba(0,0,0,0.2);" />
+    </div>
     <p>
         Hi! My name is Molly McCarthy, and I'm the creator of Hungry Badger. As a student in Madison, I
         quickly realized how easy it is to forget the amazing meals you discover while juggling a busy college life.

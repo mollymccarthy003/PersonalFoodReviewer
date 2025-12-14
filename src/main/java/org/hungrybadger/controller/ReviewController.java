@@ -103,7 +103,12 @@ public class ReviewController extends HttpServlet {
 
             case "delete":
                 int deleteId = Integer.parseInt(request.getParameter("id"));
-                deleteReview(deleteId, user);
+                boolean deleted = deleteReview(deleteId, user); // returns true/false
+                if (deleted) {
+                    request.getSession().setAttribute("successMessage", "Review deleted successfully!");
+                } else {
+                    request.getSession().setAttribute("errorMessage", "Failed to delete review.");
+                }
                 response.sendRedirect(request.getContextPath() + "/reviews");
                 break;
 
@@ -159,26 +164,54 @@ public class ReviewController extends HttpServlet {
         review.setPersonalNotes(notes != null ? notes.trim() : "");
         review.setUser(user);
 
-        reviewDao.insert(review);
-        logger.info("Added new review '{}' by user {}", review.getRestaurantName(), user.getEmail());
+        try {
+            reviewDao.insert(review);
+            request.getSession().setAttribute("successMessage", "Review added successfully!");
+            logger.info("Added new review '{}' by user {}", review.getRestaurantName(), user.getEmail());
+        } catch (Exception e) {
+            request.getSession().setAttribute("errorMessage", "Failed to add review. Please try again.");
+            logger.error("Error adding review", e);
+        }
     }
 
     private void updateReview(HttpServletRequest request, int id, User user) {
         Review review = reviewDao.getById(id);
-        if (review == null || review.getUser() == null || review.getUser().getId() != user.getId()) return;
+        if (review == null || review.getUser() == null || review.getUser().getId() != user.getId()) {
+            request.getSession().setAttribute("errorMessage", "Review not found or unauthorized.");
+            return;
+        }
 
-        review.setRestaurantName(request.getParameter("restaurantName"));
-        review.setCuisineType(request.getParameter("cuisineType"));
-        review.setPersonalRating(Integer.parseInt(request.getParameter("personalRating")));
-        review.setPersonalNotes(request.getParameter("personalNotes"));
+        try {
+            review.setRestaurantName(request.getParameter("restaurantName"));
+            review.setCuisineType(request.getParameter("cuisineType"));
+            review.setPersonalRating(Integer.parseInt(request.getParameter("personalRating")));
+            review.setPersonalNotes(request.getParameter("personalNotes"));
 
-        reviewDao.update(review);
+            reviewDao.update(review);
+            request.getSession().setAttribute("successMessage", "Review updated successfully!");
+        } catch (Exception e) {
+            request.getSession().setAttribute("errorMessage", "Failed to update review. Please try again.");
+            logger.error("Error updating review", e);
+        }
     }
 
-    private void deleteReview(int id, User user) {
+
+    private boolean deleteReview(int id, User user) {
         Review review = reviewDao.getById(id);
-        if (review == null || review.getUser() == null || review.getUser().getId() != user.getId()) return;
 
-        reviewDao.delete(review);
+        if (review == null || review.getUser() == null || review.getUser().getId() != user.getId()) {
+            logger.warn("Unauthorized or nonexistent review deletion attempt: reviewId={}, userId={}", id, user.getId());
+            return false;
+        }
+
+        try {
+            reviewDao.delete(review);
+            logger.info("Deleted review '{}' by user {}", review.getRestaurantName(), user.getEmail());
+            return true;
+        } catch (Exception e) {
+            logger.error("Error deleting review: reviewId={}", id, e);
+            return false;
+        }
     }
+
 }
