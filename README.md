@@ -2,6 +2,8 @@
 Madison is home to incredible restaurants, food trucks, and cafes, but with so many options it's easy to forget where you had that perfect meal while balancing your busy lifestyle as a student. Trying to track your favorites on mainstream apps are overwhelming, filled with ads and don't focus on tracking personal taste. I'd like to build a Personal Food Reviewer website for local Madison students. The site will allow students to review resturants quickly, see personal ratings, and add photos to reviews, or document bad experiences. All your ratings of businesses are private and personal, like a diary but for food!!
 
 Not only is this a fun way to document your current favorites, but its a way to look back on your college experience. 
+
+Check Hungry Badger out yourself: https://hungrybadger.us-east-2.elasticbeanstalk.com/ 
 ### Technologies:
 
 Database: MySQL 9.x
@@ -20,16 +22,47 @@ Unit Testing: JUnit
 
 IDE: IntelliJ IDEA
 
-External API used: [https://icanhazdadjoke.com/api](https://icanhazdadjoke.com/api) I was inspired by a classmate to choose something
-lighthearted to put on my website. I decided on dad jokes! I think this adds a great bit of whimsy to the site and makes it more casual.
-My user story targets UW area students and I think this little bit of humor is a nice way to keep it light. My original plan was to use
-my Team Project, Food Truck Restful API, but I had to pivot!
+External API used: [https://icanhazdadjoke.com/api](https://icanhazdadjoke.com/api) For lighthearted content!
 
-Post MVP ideas: comment on review, top-rated restaurant lists, most visited restuarant
+### POST MVP / V2 IDEAS:
+- s3 for photo storage
+- controller and authentication tests
+- edit a review and photos in one page
+- expand scope to ALL students anywhere in the US
+- photos carosel on main page
+- seperate Restaurant and Cuisine tables
 
-Notes:For local development, uploaded images are stored in a local directory.
-In production, Elastic Beanstalk stores uploads in /var/app/current/uploads, created via .ebextensions.
-A utility class switches paths automatically, and images are served through a servlet for consistency.
+## Notes
+- Local uploads stored in `src/main/webapp/uploads`
+- Production uploads stored in `/var/app/current/uploads` (managed via `.ebextensions`)
+- Utility class automatically switches paths
+- Images served through a servlet for consistency
+
+## Quick Local Setup
+1. Clone the repo:
+   ```bash
+   git clone <repo-url>
+   cd PersonalFoodReviewer
+   
+2. Initialize the Database
+   
+CREATE DATABASE personal_food_reviewer;
+
+SOURCE path/to/cleanDB.sql;
+
+3. Build & Run
+mvn clean install
+
+Deploy WAR to local Tomcat or run via IDE
+
+Visit: http://localhost:8080/PersonalFoodReviewer/
+
+Deployment Notes
+
+Deploy WAR file to AWS Elastic Beanstalk
+
+Ensure .ebextensions config for uploads exists
+   
 ### Design:
 
 [Screen Designs](DesignDocuments/Screens.md)
@@ -41,3 +74,5 @@ A utility class switches paths automatically, and images are served through a se
 [Project Plan](ProjectPlan.md)
 
 [Time Log](TimeLog.md)
+
+[Change Log](Changelog.md)
