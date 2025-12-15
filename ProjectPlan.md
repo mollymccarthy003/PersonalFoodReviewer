@@ -101,10 +101,9 @@ Peer feedback incorporated
 - [x] Standardize javax imports
 - [x] Add user-facing success and error feedback for actions (e.g., photo delete, review form submissions)
 - [x] Javadocs / code cleanup
-
-- [ ] Documentation final pass
-- [ ] Changelog.md
-- [ ] Add final AWS link to README
+- [x] Documentation final pass
+- [x] Changelog.md
+- [x] Add final AWS link to README
 - [x] Daily Timelog
 
 ## Week 16 Individual Project Presentations
