@@ -3,7 +3,14 @@ Madison is home to incredible restaurants, food trucks, and cafes, but with so m
 
 Not only is this a fun way to document your current favorites, but its a way to look back on your college experience. 
 
-Check Hungry Badger out yourself: https://hungrybadger.us-east-2.elasticbeanstalk.com/ 
+### Live on Web
+
+Check Hungry Badger out yourself: [https://hungrybadger.us-east-2.elasticbeanstalk.com/](https://hungrybadger.us-east-2.elasticbeanstalk.com/)
+
+### Demo Video
+
+[Demo Video on Youtube](https://www.youtube.com/watch?v=w3PSYqkwoq4)
+
 ### Technologies:
 
 Database: MySQL 9.x
